@@ -28,6 +28,7 @@ namespace TiltBrush
         public BrushDescriptor[] Brushes;
         public Environment[] Environments;
         public BrushDescriptor[] CompatibilityBrushes;
+        public BrushTag[] BrushTags;
 
         // lhs = lhs + rhs, with duplicates removed.
         // The leading portion of the returned array will be == lhs.
@@ -43,6 +44,7 @@ namespace TiltBrush
             AppendUnique(ref Brushes, rhs.Brushes);
             AppendUnique(ref Environments, rhs.Environments);
             AppendUnique(ref CompatibilityBrushes, rhs.CompatibilityBrushes);
+            AppendUnique(ref BrushTags, rhs.BrushTags);
         }
 
         private IEnumerable<BrushDescriptor> AllBrushesAndAncestors()
