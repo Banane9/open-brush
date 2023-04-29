@@ -130,6 +130,9 @@ namespace TiltBrush
             return dst;
         }
 
+        [field: SerializeField]
+        public string DurableName { get; private set; }
+
         public SerializableGuid m_Guid;
         public LocalizedString m_EnvironmentDescription;
 

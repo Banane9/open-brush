@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff8d00fae9f37c488530fd01c202d0f, type: 3}
   m_Name: Illustrative
   m_EditorClassIdentifier: 
+  <DurableName>k__BackingField: Illustrative
   m_Guid:
     m_storage: e65cde1a-a177-4bfb-b93f-f673c99a32bc
-  m_Description: ENVIRONMENT_ILLUSTRATIVE
   m_EnvironmentDescription:
     m_TableReference:
       m_TableCollectionName: GUID:c84355079ab3f3e4f8f3812258805f86

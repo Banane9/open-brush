@@ -14,6 +14,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace TiltBrush
@@ -56,8 +57,7 @@ namespace TiltBrush
             m_GuidToEnvironment.Clear();
             foreach (var env in newEnvironments)
             {
-                Environment tmp;
-                if (m_GuidToEnvironment.TryGetValue(env.m_Guid, out tmp) && tmp != env)
+                if (m_GuidToEnvironment.TryGetValue(env.m_Guid, out var tmp) && tmp != env)
                 {
                     Debug.LogErrorFormat("Guid collision: {0}, {1}", tmp, env);
                     continue;
@@ -96,14 +96,11 @@ namespace TiltBrush
 
         static void LoadEnvironmentsInManifest(List<Environment> output)
         {
-            var manifest = App.Instance.m_Manifest;
-            foreach (var asset in manifest.Environments)
-            {
-                if (asset != null)
-                {
-                    output.Add(asset);
-                }
-            }
+            var onlyEnvironments = App.UserConfig.Environments.OnlyEnvironments;
+
+            foreach (var env in App.Instance.m_Manifest.Environments
+                    .Where(env => env != null && (onlyEnvironments.Length == 0 || onlyEnvironments.Contains(env.DurableName))))
+                output.Add(env);
         }
     }
 } // namespace TiltBrush

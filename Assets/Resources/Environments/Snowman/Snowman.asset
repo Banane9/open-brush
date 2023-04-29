@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff8d00fae9f37c488530fd01c202d0f, type: 3}
   m_Name: Snowman
   m_EditorClassIdentifier: 
+  <DurableName>k__BackingField: Snowman
   m_Guid:
     m_storage: ab080511-e565-4a6d-8587-53bf495af68b
-  m_Description: ENVIRONMENT_SNOWMAN
   m_EnvironmentDescription:
     m_TableReference:
       m_TableCollectionName: GUID:c84355079ab3f3e4f8f3812258805f86

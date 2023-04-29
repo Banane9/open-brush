@@ -232,6 +232,19 @@ namespace TiltBrush
         public BrushConfig Brushes;
 
         [Serializable]
+        public struct EnvironmentConfig
+        {
+            private string[] onlyEnvironments;
+
+            public string[] OnlyEnvironments
+            {
+                get => onlyEnvironments ??= new string[0];
+                set => onlyEnvironments = value;
+            }
+        }
+        public EnvironmentConfig Environments;
+
+        [Serializable]
         public struct ExportConfig
         {
             bool? m_ExportBinaryFbx;
