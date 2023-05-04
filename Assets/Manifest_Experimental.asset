@@ -69,3 +69,4 @@ MonoBehaviour:
   Environments:
   - {fileID: 11400000, guid: c4b465a813a79c044874468d6e60f26c, type: 2}
   CompatibilityBrushes: []
+  BrushTags: []
