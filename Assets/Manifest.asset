@@ -75,6 +75,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c1b260b015c6b0a479c50dee029cc5bc, type: 2}
   - {fileID: 11400000, guid: a2472d544dd1bfd4c8f3288f9f7ee108, type: 2}
   - {fileID: 11400000, guid: b42b208b245c1d34fabaf181763cd256, type: 2}
+  - {fileID: 11400000, guid: caedc373179b4a746ae9a933b260507f, type: 2}
+  - {fileID: 11400000, guid: 2e87a5abdb6ae3c47bdb814034f5616f, type: 2}
+  - {fileID: 11400000, guid: a0788f6676ed72147809bf0c85af85c6, type: 2}
   CompatibilityBrushes:
   - {fileID: 11400000, guid: 9d74e4f2898082d48885a67bc6f6e97d, type: 2}
   - {fileID: 11400000, guid: 552a6b22c41f6514fbf6de142245a2ae, type: 2}
