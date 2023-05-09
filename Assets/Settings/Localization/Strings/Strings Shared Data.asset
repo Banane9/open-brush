@@ -2911,6 +2911,18 @@ MonoBehaviour:
     m_Key: SETTINGS_PANEL_BUTTON_RESET_DESCRIPTION_EXTRA
     m_Metadata:
       m_Items: []
+  - m_Id: 99026836532862976
+    m_Key: ENVIRONMENT_HOME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99026970175971328
+    m_Key: ENVIRONMENT_GARDEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99027126875168768
+    m_Key: ENVIRONMENT_FOREST
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
