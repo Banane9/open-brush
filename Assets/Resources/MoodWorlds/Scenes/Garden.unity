@@ -368,5 +368,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Garden
       objectReference: {fileID: 0}
+    - target: {fileID: 4239813021054960804, guid: 315cd175207634247911e190b5dc2007,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239813021054960804, guid: 315cd175207634247911e190b5dc2007,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239813021054960804, guid: 315cd175207634247911e190b5dc2007,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239813022294140617, guid: 315cd175207634247911e190b5dc2007,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239813022294140617, guid: 315cd175207634247911e190b5dc2007,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239813022294140617, guid: 315cd175207634247911e190b5dc2007,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315cd175207634247911e190b5dc2007, type: 3}
