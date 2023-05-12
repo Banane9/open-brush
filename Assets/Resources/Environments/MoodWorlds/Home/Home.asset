@@ -26,7 +26,7 @@ MonoBehaviour:
     m_LocalVariables: []
   m_IconTexture: {fileID: 2800000, guid: 2431ea795fc42654bb2aa3bde805ecdb, type: 3}
   m_RenderSettings:
-    m_FogEnabled: 1
+    m_FogEnabled: 0
     m_FogColor: {r: 0.6509804, g: 0.7254902, b: 0.8745098, a: 1}
     m_FogDensity: 0.005
     m_FogStartDistance: 0
@@ -37,23 +37,23 @@ MonoBehaviour:
     m_SkyboxTint: {r: 0.75686276, g: 0.81960785, b: 1, a: 1}
     m_EnvironmentPrefab: EnvironmentPrefabs/Home
     m_EnvironmentReverbZonePrefab: EnvironmentAudio/ReverbZone_LivingRoom
-    m_SkyboxCubemap: {fileID: 8900000, guid: da6800679da80df4880f051d0edd1714, type: 3}
-    m_ReflectionCubemap: {fileID: 8900000, guid: f83cc5a806898db42b092b6dbda6bd0d,
+    m_SkyboxCubemap: {fileID: 8900000, guid: e3de3e8435d45a64fa4aa46634ced55a, type: 3}
+    m_ReflectionCubemap: {fileID: 8900000, guid: e3de3e8435d45a64fa4aa46634ced55a,
       type: 3}
     m_ReflectionIntensity: 0.3
   m_Lights:
-  - m_Color: {r: 0.5137255, g: 0.49803922, b: 0.7372549, a: 1}
-    m_Intensity: 0.47
+  - m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+    m_Intensity: 1
     m_Position: {x: 0, y: 0, z: 8}
-    m_Rotation: {x: -0.26892626, y: 0.4869114, z: -0.5073124, w: -0.6582021}
+    m_Rotation: {x: 0.74191594, y: 0.042311072, z: 0.28971654, w: 0.6031873}
     m_Type: 1
     m_Range: 5
     m_SpotAngle: 30
     m_ShadowsEnabled: 1
-  - m_Color: {r: 0.5137255, g: 0.61960787, b: 0.8235294, a: 1}
-    m_Intensity: 0.8
+  - m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+    m_Intensity: 0
     m_Position: {x: 0, y: 0, z: 8}
-    m_Rotation: {x: 0.8002733, y: -0.4067651, z: 0.3911199, w: 0.20280555}
+    m_Rotation: {x: 0.74191594, y: 0.042311072, z: 0.28971654, w: 0.6031873}
     m_Type: 1
     m_Range: 5
     m_SpotAngle: 30
