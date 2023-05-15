@@ -2923,6 +2923,22 @@ MonoBehaviour:
     m_Key: ENVIRONMENT_FOREST
     m_Metadata:
       m_Items: []
+  - m_Id: 101468064339828736
+    m_Key: ENVIRONMENT_ABYSS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101471946155597824
+    m_Key: ENVIRONMENT_CAVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101477628716097536
+    m_Key: ENVIRONMENT_DESERT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101479476990681088
+    m_Key: ENVIRONMENT_INDUSTRY
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

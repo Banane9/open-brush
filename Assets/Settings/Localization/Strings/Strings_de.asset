@@ -2748,6 +2748,22 @@ MonoBehaviour:
     m_Localized: Haus
     m_Metadata:
       m_Items: []
+  - m_Id: 101468064339828736
+    m_Localized: Abgrund
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101471946155597824
+    m_Localized: "H\xF6hle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101477628716097536
+    m_Localized: "W\xFCste"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101479476990681088
+    m_Localized: Industrie
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

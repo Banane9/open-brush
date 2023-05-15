@@ -3112,6 +3112,22 @@ MonoBehaviour:
     m_Localized: Home
     m_Metadata:
       m_Items: []
+  - m_Id: 101468064339828736
+    m_Localized: Abyss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101471946155597824
+    m_Localized: Cave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101477628716097536
+    m_Localized: Desert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101479476990681088
+    m_Localized: Industry
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

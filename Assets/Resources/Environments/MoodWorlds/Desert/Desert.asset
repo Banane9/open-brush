@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff8d00fae9f37c488530fd01c202d0f, type: 3}
+  m_Name: Desert
+  m_EditorClassIdentifier: 
+  <DurableName>k__BackingField: Desert
+  m_Guid:
+    m_storage: 21b97d01-5617-4769-b566-25157a1642f9
+  m_EnvironmentDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:c84355079ab3f3e4f8f3812258805f86
+    m_TableEntryReference:
+      m_KeyId: 101477628716097536
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_IconTexture: {fileID: 2800000, guid: f8a20cdea20568c4ead6a9ad5185b891, type: 3}
+  m_RenderSettings:
+    m_FogEnabled: 1
+    m_FogColor: {r: 1, g: 1, b: 0.9725491, a: 1}
+    m_FogDensity: 0.001
+    m_FogStartDistance: 100
+    m_FogEndDistance: 0
+    m_ClearColor: {r: 0.5058824, g: 0.6313726, b: 0.8196079, a: 1}
+    m_AmbientColor: {r: 1, g: 1, b: 0.95294124, a: 1}
+    m_SkyboxExposure: 0.95
+    m_SkyboxTint: {r: 1, g: 1, b: 1, a: 1}
+    m_EnvironmentPrefab: EnvironmentPrefabs/Desert
+    m_EnvironmentReverbZonePrefab: EnvironmentAudio/ReverbZone_Desert
+    m_SkyboxCubemap: {fileID: 8900000, guid: 566cada353cad2441ba7b045c8ea1a79, type: 3}
+    m_ReflectionCubemap: {fileID: 8900000, guid: 566cada353cad2441ba7b045c8ea1a79,
+      type: 3}
+    m_ReflectionIntensity: 0.3
+  m_Lights:
+  - m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+    m_Intensity: 0.75
+    m_Position: {x: 0, y: 0, z: 8}
+    m_Rotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+    m_Type: 1
+    m_Range: 5
+    m_SpotAngle: 30
+    m_ShadowsEnabled: 1
+  - m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+    m_Intensity: 0.3
+    m_Position: {x: 0, y: 0, z: 8}
+    m_Rotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+    m_Type: 1
+    m_Range: 5
+    m_SpotAngle: 30
+    m_ShadowsEnabled: 0
+  m_TeleportBoundsHalfWidth: 80
+  m_ControllerXRayHeight: 0
+  m_WidgetHome: {x: 0, y: 0, z: 0}
+  m_SkyboxColorA: {r: 0.4784314, g: 0.59607846, b: 0.77647066, a: 1}
+  m_SkyboxColorB: {r: 1, g: 0.9450981, b: 0.6313726, a: 1}
+  references:
+    version: 2
+    RefIds: []
