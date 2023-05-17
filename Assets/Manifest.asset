@@ -78,6 +78,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: caedc373179b4a746ae9a933b260507f, type: 2}
   - {fileID: 11400000, guid: 2e87a5abdb6ae3c47bdb814034f5616f, type: 2}
   - {fileID: 11400000, guid: a0788f6676ed72147809bf0c85af85c6, type: 2}
+  - {fileID: 11400000, guid: 56a72efb6f18fd946835c1b0768c3a12, type: 2}
+  - {fileID: 11400000, guid: 23e7266d1819c2a4dbb05e37eabbe41d, type: 2}
+  - {fileID: 11400000, guid: 0c73e90dc45ccd2449cc96589830dea0, type: 2}
+  - {fileID: 11400000, guid: a6e7be63a93d6a6429b27a7bd0fad2e9, type: 2}
   CompatibilityBrushes:
   - {fileID: 11400000, guid: 9d74e4f2898082d48885a67bc6f6e97d, type: 2}
   - {fileID: 11400000, guid: 552a6b22c41f6514fbf6de142245a2ae, type: 2}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ff8d00fae9f37c488530fd01c202d0f, type: 3}
-  m_Name: Home
+  m_Name: House
   m_EditorClassIdentifier: 
-  <DurableName>k__BackingField: Garden
+  <DurableName>k__BackingField: House
   m_Guid:
     m_storage: e3540e38-59d3-4951-b0a8-98c250011470
   m_EnvironmentDescription:
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_AmbientColor: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 1}
     m_SkyboxExposure: 0.95
     m_SkyboxTint: {r: 0.75686276, g: 0.81960785, b: 1, a: 1}
-    m_EnvironmentPrefab: EnvironmentPrefabs/Home
+    m_EnvironmentPrefab: EnvironmentPrefabs/House
     m_EnvironmentReverbZonePrefab: EnvironmentAudio/ReverbZone_LivingRoom
     m_SkyboxCubemap: {fileID: 8900000, guid: e3de3e8435d45a64fa4aa46634ced55a, type: 3}
     m_ReflectionCubemap: {fileID: 8900000, guid: e3de3e8435d45a64fa4aa46634ced55a,
