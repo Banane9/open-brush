@@ -1196,6 +1196,16 @@ namespace TiltBrush
             for (int i = 0; i < m_NumActivePointers; ++i)
             {
                 PointerScript script = m_Pointers[i].m_Script;
+                var pointerPosition = script.gameObject.transform.position;
+                var groundDirection = new Vector2(pointerPosition.x, pointerPosition.z).normalized;
+
+                // No need to divide by magnitudes as both are normalized
+                var angle = Mathf.Acos(Vector2.Dot(groundDirection, Vector2.up)) * Mathf.Rad2Deg;
+                if (pointerPosition.x < 0)
+                    angle = 360 - angle;
+
+                Debug.Log("Pointer is at " + angle + " to forward vector");
+
                 var xfPointer_CS = canvas.AsCanvas[script.transform];
 
                 // Pass in parametric stroke creator.
@@ -1216,6 +1226,9 @@ namespace TiltBrush
                             break;
                     }
                 }
+
+
+                Debug.Log("started stroke for pointer " + i);
 
                 script.CreateNewLine(
                     canvas, xfPointer_CS, currentCreator,
@@ -1248,6 +1261,8 @@ namespace TiltBrush
                 // XXX: when would an active pointer not be creating a line?
                 if (pointer.IsCreatingStroke())
                 {
+
+                    Debug.Log("ended stroke for pointer " + i);
                     bool bDiscardLine = discard || pointer.ShouldDiscardCurrentLine();
                     if (bDiscardLine)
                     {

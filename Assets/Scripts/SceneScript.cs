@@ -297,7 +297,7 @@ namespace TiltBrush
 
         public void ToggleLayerVisibility(CanvasScript canvas)
         {
-            Debug.Log(canvas.gameObject.activeSelf ? "Disabled" : "Enabled");
+            Debug.Log(canvas.gameObject.activeSelf ? "Layer toggled to Disabled" : "Layer toggled to Enabled");
             if (canvas.gameObject.activeSelf) canvas.gameObject.SetActive(false);
             else canvas.gameObject.SetActive(true);
             App.Scene.LayerCanvasesUpdate?.Invoke();
