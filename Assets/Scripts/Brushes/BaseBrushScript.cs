@@ -93,6 +93,8 @@ namespace TiltBrush
 
         #endregion
 
+        public int InitialRadialSegment = -1;
+
         readonly public bool m_bCanBatch;
 
         // Brush descriptor; immutable; never changes

@@ -1,4 +1,6 @@
 {
+  "MoodWorlds": {
+  },
   "User": {
   },
   "Brushes": {

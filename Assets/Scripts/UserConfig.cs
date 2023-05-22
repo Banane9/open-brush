@@ -25,6 +25,27 @@ namespace TiltBrush
     public class UserConfig
     {
         [Serializable]
+        public struct MoodWorldsConfig
+        {
+            private int? radialSegments;
+
+            private float? raidalTolerance;
+
+            public int RadialSegments
+            {
+                get => radialSegments ??= 8;
+                set => radialSegments = value;
+            }
+
+            public float RadialTolerance
+            {
+                get => raidalTolerance ??= .125f;
+                set => raidalTolerance = value;
+            }
+        }
+        public MoodWorldsConfig MoodWorlds;
+
+        [Serializable]
         public struct YouTubeConfig
         {
             public string ChannelID;

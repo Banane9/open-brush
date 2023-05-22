@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using MoodWorlds;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -871,6 +872,26 @@ namespace TiltBrush
             m_CurrentLine = BaseBrushScript.Create(
                 canvas.transform, xf_CS,
                 desc, m_CurrentColor, jitteredBrushSize);
+
+            m_CurrentLine.InitialRadialSegment = GetCurrentRadialSegment();
+        }
+
+        public float GetCurrentRadialSegmentPosition()
+        {
+            var pointerPosition = gameObject.transform.position;
+            var groundDirection = new Vector2(pointerPosition.x, pointerPosition.z).normalized;
+
+            // No need to divide by magnitudes as both are normalized
+            var angle = Mathf.Acos(Vector2.Dot(groundDirection, Vector2.up)) * Mathf.Rad2Deg;
+            if (pointerPosition.x < 0)
+                angle = 360 - angle;
+
+            return angle / MoodWorldsManager.RadialSegmentAngle;
+        }
+
+        public int GetCurrentRadialSegment()
+        {
+            return Mathf.RoundToInt(GetCurrentRadialSegmentPosition()) % MoodWorldsManager.RadialSegments;
         }
 
         /// Like BeginLineFromMemory + EndLineFromMemory
@@ -1071,7 +1092,11 @@ namespace TiltBrush
         {
             if (m_CurrentLine)
             {
-                return m_CurrentLine.ShouldCurrentLineEnd();
+                var lowerSegment = Mathf.RoundToInt(GetCurrentRadialSegmentPosition() - MoodWorldsManager.RadialSegmentTolerance) % MoodWorldsManager.RadialSegments;
+                var higherSegment = Mathf.RoundToInt(GetCurrentRadialSegmentPosition() + MoodWorldsManager.RadialSegmentTolerance) % MoodWorldsManager.RadialSegments;
+
+                return m_CurrentLine.ShouldCurrentLineEnd()
+                    || (lowerSegment != m_CurrentLine.InitialRadialSegment && higherSegment != m_CurrentLine.InitialRadialSegment);
             }
             return false;
         }

@@ -55,7 +55,7 @@ namespace TiltBrush
         public const string kGoogleServicesAppName = kAppDisplayName;
         // The name of the configuration file. You may want to change this if you think your users may
         // want to have a different config file for your edition of the app.
-        public const string kConfigFileName = "Open Brush.cfg";
+        public const string kConfigFileName = "MoodWorlds.cfg";
         // The name of the App folder (In the user's Documents folder) - original Tilt Brush used "Tilt Brush"
         // If you are forking Open Brush, you may want to leave this as "Open Brush" or not. 
         public const string kAppFolderName = "Open Brush";
@@ -491,7 +491,7 @@ namespace TiltBrush
             Log($"SdkMode: {App.Config.m_SdkMode}.");
 
             // Begone, physics! You were using 0.3 - 1.3ms per frame on Quest!
-            Physics.autoSimulation = false;
+            //Physics.autoSimulation = false;
 
             // See if this is the first time
             HasPlayedBefore = PlayerPrefs.GetInt(kPlayerPrefHasPlayedBefore, 0) == 1;
