@@ -1204,6 +1204,10 @@ namespace TiltBrush
                 if (pointerPosition.x < 0)
                     angle = 360 - angle;
 
+                var slice = 1 + (Mathf.RoundToInt(angle + 22.5f) % 360) / 45;
+
+                canvas = App.Scene.GetOrCreateLayer(slice);
+
                 Debug.Log("Pointer is at " + angle + " to forward vector");
 
                 var xfPointer_CS = canvas.AsCanvas[script.transform];
