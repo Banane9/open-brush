@@ -1193,7 +1193,7 @@ namespace TiltBrush
                 }
             }
 
-            var canvas = App.Scene.MainCanvas;
+            var canvas = App.Scene.ActiveCanvas;
             for (int i = 0; i < m_NumActivePointers; ++i)
             {
                 var script = m_Pointers[i].m_Script;
@@ -1228,6 +1228,7 @@ namespace TiltBrush
                 script.CreateNewLine(
                     canvas, xfPointer_CS, currentCreator,
                     m_StraightEdgeProxyActive ? m_StraightEdgeProxyBrush : null);
+
                 script.SetControlPoint(xfPointer_CS, isKeeper: true);
             }
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TiltBrush;
@@ -5,21 +6,54 @@ using UnityEngine;
 
 namespace MoodWorlds
 {
-    public class MoodWorldsManager : MonoBehaviour
+    public static class MoodWorldsManager
     {
-        public static MoodWorldsManager Instance { get; private set; }
+        private static MoodWorldsStage stage;
 
-        public static MoodWorldsStage Stage { get; private set; }
+        public static MoodWorldsStage Stage
+        {
+            get => stage;
+            private set
+            {
+                stage = value;
+                Debug.Log("MoodWorlds stage set to " + stage);
+            }
+        }
+
+        public static bool IsReturningToPositiveWorld => (Stage & MoodWorldsStage.ReturningToPositiveWorld) > 0;
 
         public static int RadialSegments => App.UserConfig.MoodWorlds.RadialSegments;
         public static float RadialSegmentAngle => 360f / RadialSegments;
         public static float RadialSegmentTolerance => App.UserConfig.MoodWorlds.RadialTolerance;
 
-        // Start is called before the first frame update
-        void Start()
+        public static void SetCreatingPositiveWorld()
         {
-            Instance = this;
+            Stage = MoodWorldsStage.CreatingPositiveWorld;
         }
 
+        public static void SetCreatingNegativeWorld()
+        {
+            Stage = MoodWorldsStage.CreatingNegativeWorld;
+        }
+
+        public static void SetLettingItGo()
+        {
+            Stage = MoodWorldsStage.LettingItGo;
+        }
+
+        public static void SetTyingItIn()
+        {
+            Stage = MoodWorldsStage.TyingItIn;
+        }
+
+        public static void SetWrappingItUp()
+        {
+            Stage = MoodWorldsStage.WrappingItUp;
+        }
+
+        public static void SetReturnedToPositiveWorld()
+        {
+            Stage = MoodWorldsStage.ReturnedToPositiveWorld;
+        }
     }
 }

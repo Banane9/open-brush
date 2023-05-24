@@ -3128,6 +3128,34 @@ MonoBehaviour:
     m_Localized: Industry
     m_Metadata:
       m_Items: []
+  - m_Id: 104714840773599232
+    m_Localized: MoodWorlds Control Panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104774713456566272
+    m_Localized: Let it go
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104775069288734720
+    m_Localized: Wrap it up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104775517034881024
+    m_Localized: Tie it in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104775733897175040
+    m_Localized: Create positive world
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104776000055123968
+    m_Localized: Create negative world
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104776219094261760
+    m_Localized: Return to positive world
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

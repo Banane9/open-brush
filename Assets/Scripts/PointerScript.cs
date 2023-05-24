@@ -1096,7 +1096,7 @@ namespace TiltBrush
                 var higherSegment = Mathf.RoundToInt(GetCurrentRadialSegmentPosition() + MoodWorldsManager.RadialSegmentTolerance) % MoodWorldsManager.RadialSegments;
 
                 return m_CurrentLine.ShouldCurrentLineEnd()
-                    || (lowerSegment != m_CurrentLine.InitialRadialSegment && higherSegment != m_CurrentLine.InitialRadialSegment);
+                    || (MoodWorldsManager.Stage == MoodWorldsStage.CreatingNegativeWorld && lowerSegment != m_CurrentLine.InitialRadialSegment && higherSegment != m_CurrentLine.InitialRadialSegment);
             }
             return false;
         }

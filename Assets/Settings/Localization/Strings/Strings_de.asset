@@ -2764,6 +2764,34 @@ MonoBehaviour:
     m_Localized: Industrie
     m_Metadata:
       m_Items: []
+  - m_Id: 104714840773599232
+    m_Localized: MoodWorlds Steuerungspanel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104774713456566272
+    m_Localized: Lass es los
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104775069288734720
+    m_Localized: Bring es zu Ende
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104775517034881024
+    m_Localized: Nimm es auf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104775733897175040
+    m_Localized: Erstelle positive Welt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104776000055123968
+    m_Localized: Erstelle negative Welt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104776219094261760
+    m_Localized: "Kehre zur positiven Welt zur\xFCck"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

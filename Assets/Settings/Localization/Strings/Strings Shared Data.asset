@@ -2939,6 +2939,34 @@ MonoBehaviour:
     m_Key: ENVIRONMENT_INDUSTRY
     m_Metadata:
       m_Items: []
+  - m_Id: 104714840773599232
+    m_Key: MOODWORLDS_PANEL_DESCRIPTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104774713456566272
+    m_Key: BUTTON_LET_IT_GO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104775069288734720
+    m_Key: BUTTON_WRAP_IT_UP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104775517034881024
+    m_Key: BUTTON_TIE_IT_IN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104775733897175040
+    m_Key: BUTTON_CREATE_POSITIVE_WORLD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104776000055123968
+    m_Key: BUTTON_CREATE_NEGATIVE_WORLD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104776219094261760
+    m_Key: BUTTON_RETURN_TO_POSITIVE_WORLD
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

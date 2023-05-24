@@ -31,6 +31,7 @@ using ZipLibrary = Ionic.Zip;
 #else
 using ZipSubfileReader = TiltBrush.ZipSubfileReader_SharpZipLib;
 using ZipLibrary = ICSharpCode.SharpZipLib.Zip;
+using MoodWorlds;
 #endif
 
 #if !UNITY_2020_3_OR_NEWER
@@ -1515,7 +1516,8 @@ namespace TiltBrush
         {
             return !TutorialManager.m_Instance.TutorialActive() &&
                 CurrentState == AppState.Standard &&
-                !PanelManager.m_Instance.IntroSketchbookMode;
+                !PanelManager.m_Instance.IntroSketchbookMode &&
+                !MoodWorldsManager.IsReturningToPositiveWorld;
         }
 
         public bool IsInStateThatAllowsAnyGrabbing()
