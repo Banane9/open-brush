@@ -15,6 +15,8 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using MoodWorlds;
+using System.Linq;
 
 namespace TiltBrush
 {
@@ -200,23 +202,23 @@ namespace TiltBrush
             vForward = -transform.forward;
         }
 
-        public void EnableSpecificTool(BaseTool.ToolType rType)
+        public void EnableSpecificTool(BaseTool.ToolType type)
         {
-            if (ActiveTool.m_Type == rType)
-            {
+            if (ActiveTool.m_Type == type || MoodWorldsManager.IsReturningToPositiveWorld)
                 return;
-            }
 
-            for (int i = 0; i < m_Tools.Length; ++i)
+            for (var i = 0; i < m_Tools.Length; ++i)
             {
-                if (m_Tools[i].m_Type == rType)
+                if (m_Tools[i].m_Type == type)
                 {
                     ActiveTool.EnableTool(false);
 
                     m_ActiveToolIndex = i;
                     ActiveTool.EnableTool(true);
+
                     m_ToolSelectionAggregateValue = 0.0f;
                     App.Switchboard.TriggerToolChanged();
+
                     return;
                 }
             }

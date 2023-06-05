@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using MoodWorlds;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -86,6 +87,10 @@ namespace TiltBrush
             Trash,
             Share,
             Fly,
+            MoodWorldsCommand = MoodWorldsStage.ReturningToPositiveWorld,
+            LettingGo = MoodWorldsStage.LettingItGo,
+            WrappingUp = MoodWorldsStage.WrappingItUp,
+            TyingIn = MoodWorldsStage.TyingItIn
         }
 
         /// WARNING: do not arbitrarily rename these enum values.
@@ -600,6 +605,11 @@ namespace TiltBrush
                     return Wand.GetCommand(rCommand);
                 case SketchCommands.Fly:
                     return Brush.GetCommand(rCommand);
+                case SketchCommands.LettingGo:
+                case SketchCommands.WrappingUp:
+                    return Brush.GetCommand(rCommand);
+                case SketchCommands.TyingIn:
+                    return Brush.GetCommand(rCommand) && Wand.GetCommand(rCommand);
             }
 
 

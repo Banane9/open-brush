@@ -12,110 +12,103 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using MoodWorlds;
 using UnityEngine;
 
 namespace TiltBrush
 {
-
     public class BaseTool : MonoBehaviour
     {
-        public enum ToolType
-        {
-            SketchSurface,
-            Selection,
-            ColorPicker,
-            BrushPicker,
-            BrushAndColorPicker,
-            SketchOrigin,
-            AutoGif,
-            CanvasTool,
-            TransformTool,
-            StampTool,
-            FreePaintTool,
-            EraserTool,
-            ScreenshotTool,
-            DropperTool,
-            SaveIconTool,
-            ThreeDofViewingTool,
-            MultiCamTool,
-            TeleportTool,
-            RepaintTool,
-            RecolorTool,
-            RebrushTool,
-            SelectionTool,
-            PinTool,
-            EmptyTool,
-            CameraPathTool,
-            FlyTool,
-            SnipTool = 11000,
-            JoinTool = 11001
-        }
+        public bool m_ShowTransformGizmo = false;
+
         public ToolType m_Type;
 
-        public bool m_ShowTransformGizmo = false;
-        [SerializeField] protected bool m_ExitOnAbortCommand = true;
-        [SerializeField] protected bool m_ScalingSupported = false;
+        protected bool m_AllowDrawing;
 
-        public virtual float ButtonHoldDuration { get { return 1.0f; } }
+        protected bool m_EatInput;
+
+        [SerializeField] protected bool m_ExitOnAbortCommand = true;
 
         protected Transform m_Parent;
-        protected SketchSurfacePanel m_SketchSurface;
+
         protected Vector3 m_ParentBaseScale;
-        private Vector3 m_ParentScale;
 
         protected bool m_RequestExit;
-        protected bool m_EatInput;
-        protected bool m_AllowDrawing;
+
+        [SerializeField] protected bool m_ScalingSupported = false;
+
+        protected SketchSurfacePanel m_SketchSurface;
+
         protected bool m_ToolHidden;
 
-        public bool IsEatingInput { get { return m_EatInput; } }
+        private Vector3 m_ParentScale;
 
-        public bool ExitRequested() { return m_RequestExit; }
-        public bool ToolHidden() { return m_ToolHidden; }
-        public void EatInput() { m_EatInput = true; }
-        public void AllowDrawing(bool bAllow) { m_AllowDrawing = bAllow; }
-        public virtual bool ShouldShowPointer() { return false; }
+        public virtual float ButtonHoldDuration
+        { get { return 1.0f; } }
 
-        virtual public void Init()
+        public bool IsEatingInput
+        { get { return m_EatInput; } }
+
+        // If this is true, the user can use the default tool toggle.
+        public virtual bool AllowDefaultToolToggle()
         {
-            m_Parent = transform.parent;
-            if (m_Parent != null)
-            {
-                m_ParentBaseScale = m_Parent.localScale;
-                m_SketchSurface = m_Parent.GetComponent<SketchSurfacePanel>();
-            }
+            return !PointerManager.m_Instance.IsMainPointerCreatingStroke();
         }
 
-        virtual protected void Awake()
-        {
-            // Some tools attach things to controllers (like the camera to the brush in SaveIconTool)
-            // and these need to be swapped when the controllers are swapped.
-            InputManager.OnSwapControllers += OnSwap;
-        }
+        public void AllowDrawing(bool bAllow)
+        { m_AllowDrawing = bAllow; }
 
-        virtual protected void OnDestroy()
-        {
-            InputManager.OnSwapControllers -= OnSwap;
-        }
-
-        virtual protected void OnSwap() { }
-
-        virtual public void HideTool(bool bHide)
-        {
-            m_ToolHidden = bHide;
-        }
-
-        virtual public bool ShouldShowTouch()
+        public virtual bool AllowsWidgetManipulation()
         {
             return true;
         }
 
-        virtual public bool CanShowPromosWhileInUse()
+        public virtual bool AllowWorldTransformation()
         {
             return true;
         }
 
-        virtual public void EnableTool(bool bEnable)
+        // Called to notify the tool that it should assign controller materials.
+        public virtual void AssignControllerMaterials(InputManager.ControllerName controller)
+        {
+        }
+
+        // True if this tool can be used while a sketch is loading.
+        public virtual bool AvailableDuringLoading()
+        {
+            return false;
+        }
+
+        public virtual void BacksideActive(bool bActive)
+        {
+        }
+
+        // If this is true, the tool will disallow the pin cushion from spawning.
+        public virtual bool BlockPinCushion()
+        {
+            return false;
+        }
+
+        // Overridden by classes to set when tool sizing interaction should be disabled.
+        public virtual bool CanAdjustSize()
+        {
+            return true;
+        }
+
+        public virtual bool CanShowPromosWhileInUse()
+        {
+            return true;
+        }
+
+        public void EatInput()
+        { m_EatInput = true; }
+
+        public virtual void EnableRenderer(bool enable)
+        {
+            gameObject.SetActive(enable);
+        }
+
+        public virtual void EnableTool(bool bEnable)
         {
             m_RequestExit = false;
             gameObject.SetActive(bEnable);
@@ -140,11 +133,105 @@ namespace TiltBrush
             }
         }
 
+        public bool ExitRequested()
+        { return m_RequestExit; }
+
+        public virtual float GetSize()
+        {
+            return 0.0f;
+        }
+
+        // Returns a number in [0,1]
+        public virtual float GetSize01()
+        {
+            return 0.0f;
+        }
+
+        public virtual float GetSizeRatio(
+            InputManager.ControllerName controller, VrInput input)
+        {
+            if (controller == InputManager.ControllerName.Brush)
+            {
+                return GetSize01();
+            }
+            return 0.0f;
+        }
+
+        // If this is true, the tool will tell the panels to hide.
+        public virtual bool HidePanels()
+        {
+            return false;
+        }
+
+        public virtual void HideTool(bool bHide)
+        {
+            m_ToolHidden = bHide;
+        }
+
+        public virtual void Init()
+        {
+            m_Parent = transform.parent;
+            if (m_Parent != null)
+            {
+                m_ParentBaseScale = m_Parent.localScale;
+                m_SketchSurface = m_Parent.GetComponent<SketchSurfacePanel>();
+            }
+        }
+
+        // Overridden by classes to set when gaze and widget interaction should be disabled.
+        public virtual bool InputBlocked()
+        {
+            return false;
+        }
+
         // Called only on frames that UpdateTool() has been called.
         // Guaranteed to be called after new poses have been received from OpenVR.
-        virtual public void LateUpdateTool() { }
+        public virtual void LateUpdateTool()
+        { }
 
-        virtual public void UpdateTool()
+        public virtual bool LockPointerToSketchSurface()
+        {
+            return true;
+        }
+
+        public virtual void Monitor()
+        { }
+
+        public bool ScalingSupported()
+        {
+            return m_ScalingSupported;
+        }
+
+        public virtual void SetColor(Color rColor)
+        {
+        }
+
+        public virtual void SetExtraText(string sExtra)
+        {
+        }
+
+        public virtual void SetToolProgress(float fProgress)
+        {
+        }
+
+        public virtual bool ShouldShowPointer()
+        { return false; }
+
+        public virtual bool ShouldShowTouch()
+        {
+            return true;
+        }
+
+        public bool ToolHidden()
+        { return m_ToolHidden; }
+
+        // Modifies the size by some amount determined by the implementation.
+        // _usually_ this will have the effect that GetSize() changes by fAdjustAmount,
+        // but not necessarily (see FreePaintTool).
+        public virtual void UpdateSize(float fAdjustAmount)
+        { }
+
+        public virtual void UpdateTool()
         {
             if (m_EatInput)
             {
@@ -159,115 +246,20 @@ namespace TiltBrush
             }
         }
 
-        // Called to notify the tool that it should assign controller materials.
-        public virtual void AssignControllerMaterials(InputManager.ControllerName controller)
+        protected virtual void Awake()
         {
+            // Some tools attach things to controllers (like the camera to the brush in SaveIconTool)
+            // and these need to be swapped when the controllers are swapped.
+            InputManager.OnSwapControllers += OnSwap;
         }
 
-        public bool ScalingSupported()
+        protected virtual void OnDestroy()
         {
-            return m_ScalingSupported;
+            InputManager.OnSwapControllers -= OnSwap;
         }
 
-        // Modifies the size by some amount determined by the implementation.
-        // _usually_ this will have the effect that GetSize() changes by fAdjustAmount,
-        // but not necessarily (see FreePaintTool).
-        virtual public void UpdateSize(float fAdjustAmount) { }
-
-        virtual public void Monitor() { }
-
-        virtual public float GetSizeRatio(
-            InputManager.ControllerName controller, VrInput input)
-        {
-            if (controller == InputManager.ControllerName.Brush)
-            {
-                return GetSize01();
-            }
-            return 0.0f;
-        }
-
-        virtual public float GetSize()
-        {
-            return 0.0f;
-        }
-
-        // Returns a number in [0,1]
-        virtual public float GetSize01()
-        {
-            return 0.0f;
-        }
-
-        virtual public void SetColor(Color rColor)
-        {
-        }
-
-        virtual public void SetExtraText(string sExtra)
-        {
-        }
-
-        virtual public void SetToolProgress(float fProgress)
-        {
-        }
-
-        virtual public void BacksideActive(bool bActive)
-        {
-        }
-
-        virtual public bool LockPointerToSketchSurface()
-        {
-            return true;
-        }
-
-        virtual public bool AllowsWidgetManipulation()
-        {
-            return true;
-        }
-
-        // Overridden by classes to set when tool sizing interaction should be disabled.
-        virtual public bool CanAdjustSize()
-        {
-            return true;
-        }
-
-        // Overridden by classes to set when gaze and widget interaction should be disabled.
-        virtual public bool InputBlocked()
-        {
-            return false;
-        }
-
-        virtual public bool AllowWorldTransformation()
-        {
-            return true;
-        }
-
-        // True if this tool can be used while a sketch is loading.
-        virtual public bool AvailableDuringLoading()
-        {
-            return false;
-        }
-
-        // If this is true, the tool will tell the panels to hide.
-        virtual public bool HidePanels()
-        {
-            return false;
-        }
-
-        // If this is true, the tool will disallow the pin cushion from spawning.
-        virtual public bool BlockPinCushion()
-        {
-            return false;
-        }
-
-        // If this is true, the user can use the default tool toggle.
-        virtual public bool AllowDefaultToolToggle()
-        {
-            return !PointerManager.m_Instance.IsMainPointerCreatingStroke();
-        }
-
-        virtual public void EnableRenderer(bool enable)
-        {
-            gameObject.SetActive(enable);
-        }
+        protected virtual void OnSwap()
+        { }
 
         protected bool PointInTriangle(ref Vector3 rPoint, ref Vector3 rA, ref Vector3 rB, ref Vector3 rC)
         {
@@ -315,6 +307,42 @@ namespace TiltBrush
             Vector3 vProjectedPoint = segmentRay.GetPoint(fDistToCenterProj);
             Vector3 vToProjectedPoint = vProjectedPoint - vSphereCenter;
             return vToProjectedPoint.sqrMagnitude <= fSphereRadSq;
+        }
+
+        public enum ToolType
+        {
+            SketchSurface,
+            Selection,
+            ColorPicker,
+            BrushPicker,
+            BrushAndColorPicker,
+            SketchOrigin,
+            AutoGif,
+            CanvasTool,
+            TransformTool,
+            StampTool,
+            FreePaintTool,
+            EraserTool,
+            ScreenshotTool,
+            DropperTool,
+            SaveIconTool,
+            ThreeDofViewingTool,
+            MultiCamTool,
+            TeleportTool,
+            RepaintTool,
+            RecolorTool,
+            RebrushTool,
+            SelectionTool,
+            PinTool,
+            EmptyTool,
+            CameraPathTool,
+            FlyTool,
+            SnipTool = 11000,
+            JoinTool = 11001,
+            MoodWorldsTool = MoodWorldsStage.ReturningToPositiveWorld,
+            LettingItGoTool = MoodWorldsStage.LettingItGo,
+            WrappingItUpTool = MoodWorldsStage.WrappingItUp,
+            TyingItInTool = MoodWorldsStage.TyingItIn
         }
     }
 } // namespace TiltBrush
