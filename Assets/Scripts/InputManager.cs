@@ -612,7 +612,6 @@ namespace TiltBrush
                     return Brush.GetCommand(rCommand) && Wand.GetCommand(rCommand);
             }
 
-
             return false;
         }
 

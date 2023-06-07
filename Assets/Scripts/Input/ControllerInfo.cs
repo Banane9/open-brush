@@ -184,9 +184,8 @@ namespace TiltBrush
                     return IsTrigger();
                 case SketchCommands.LettingGo:
                 case SketchCommands.WrappingUp:
-                    return IsTrigger();
                 case SketchCommands.TyingIn:
-                    return GetControllerGrip();
+                    return IsTrigger();
             }
 
             return false;

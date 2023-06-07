@@ -7,7 +7,7 @@ namespace MoodWorlds
     {
         private bool alreadyActive;
         private bool armed;
-        private GameObject visual;
+        protected GameObject visual;
 
         public override void EnableTool(bool bEnable)
         {
@@ -46,7 +46,7 @@ namespace MoodWorlds
         {
             base.UpdateTool();
 
-            if (InputBlocked())
+            if (!armed)
             {
                 if (!CommandActive())
                     armed = true;
@@ -54,19 +54,24 @@ namespace MoodWorlds
                 return;
             }
 
-            if (!CommandActive())
+            if (InputBlocked() || !CommandActive())
             {
-                OnCommandDeactivated();
+                if (alreadyActive)
+                {
+                    alreadyActive = false;
+                    OnCommandDeactivated();
+                }
+                
                 return;
             }
 
-            if (alreadyActive)
+            if (!alreadyActive)
             {
                 alreadyActive = true;
                 OnCommandActivated();
             }
 
-            OnCommandActive();
+            WhileCommandActive();
         }
 
         protected abstract bool CommandActive();
@@ -74,7 +79,7 @@ namespace MoodWorlds
         protected virtual void OnCommandActivated()
         { }
 
-        protected virtual void OnCommandActive()
+        protected virtual void WhileCommandActive()
         { }
 
         protected virtual void OnCommandDeactivated()
@@ -86,7 +91,7 @@ namespace MoodWorlds
             // Lock tool to camera controller.
             //if (m_LockToController)
             //{
-            transform.SetPositionAndRotation(rAttachPoint.position, rAttachPoint.rotation);
+            visual.transform.SetPositionAndRotation(rAttachPoint.position, rAttachPoint.rotation);
             //}
             //else
             //{
