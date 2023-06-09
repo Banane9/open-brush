@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TiltBrush;
 using UnityEngine;
 
@@ -89,6 +90,37 @@ namespace MoodWorlds
             SketchSurfacePanel.m_Instance.EnableSpecificTool(previousActiveTool.Value);
 
             previousActiveTool = null;
+        }
+
+        public static void TriggerHide(Vector3 direction)
+        {
+            var canvasSlice = App.Scene.GetOrCreateLayer(GetRadialSegment(direction) + 1);
+
+            if (canvasSlice.gameObject.activeSelf)
+                if (canvasSlice.transform.Cast<Transform>().FirstOrDefault(tf => tf.gameObject.activeSelf) is Transform activeBatch)
+                    activeBatch.gameObject.SetActive(false);
+                else
+                    canvasSlice.gameObject.SetActive(false);
+
+            if (App.Scene.LayerCanvases.Skip(1).All(canvas => !canvas.gameObject.activeSelf))
+                SetReturnedToPositiveWorld();
+        }
+
+        public static float GetRadialSegmentPosition(Vector3 direction)
+        {
+            var groundDirection = new Vector2(direction.x, direction.z).normalized;
+
+            // No need to divide by magnitudes as both are normalized
+            var angle = Mathf.Acos(Vector2.Dot(groundDirection, Vector2.up)) * Mathf.Rad2Deg;
+            if (direction.x < 0)
+                angle = 360 - angle;
+
+            return angle / RadialSegmentAngle;
+        }
+
+        public static int GetRadialSegment(Vector3 direction)
+        {
+            return Mathf.RoundToInt(GetRadialSegmentPosition(direction)) % RadialSegments;
         }
     }
 }

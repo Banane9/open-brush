@@ -878,20 +878,12 @@ namespace TiltBrush
 
         public float GetCurrentRadialSegmentPosition()
         {
-            var pointerPosition = gameObject.transform.position;
-            var groundDirection = new Vector2(pointerPosition.x, pointerPosition.z).normalized;
-
-            // No need to divide by magnitudes as both are normalized
-            var angle = Mathf.Acos(Vector2.Dot(groundDirection, Vector2.up)) * Mathf.Rad2Deg;
-            if (pointerPosition.x < 0)
-                angle = 360 - angle;
-
-            return angle / MoodWorldsManager.RadialSegmentAngle;
+            return MoodWorldsManager.GetRadialSegmentPosition(gameObject.transform.position);
         }
 
         public int GetCurrentRadialSegment()
         {
-            return Mathf.RoundToInt(GetCurrentRadialSegmentPosition()) % MoodWorldsManager.RadialSegments;
+            return MoodWorldsManager.GetRadialSegment(gameObject.transform.position);
         }
 
         /// Like BeginLineFromMemory + EndLineFromMemory
