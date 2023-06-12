@@ -80,6 +80,13 @@ namespace MoodWorlds
             SetButtonsAvailable(2);
         }
 
+        public void SetReturnedToPositiveWorld()
+        {
+            MoodWorldsManager.SetReturnedToPositiveWorld();
+
+            SetButtonsAvailable(4);
+        }
+
         private void Start()
         {
             stageButtons = stages.Select(stage => stage.GetComponentsInChildren<BaseButton>()).ToArray();

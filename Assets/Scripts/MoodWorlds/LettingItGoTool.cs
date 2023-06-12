@@ -16,6 +16,7 @@ namespace MoodWorlds
         private Vector3 flySpeed;
         private Transform flyer;
         private Transform flyerPitch;
+        private bool hideTriggered;
 
         public override void Init()
         {
@@ -66,6 +67,13 @@ namespace MoodWorlds
                 flySpeed.y -= Time.deltaTime * 98.1f / groundSpeed.magnitude;
                 flySpeed.x *= Mathf.Pow(.9f, Time.deltaTime);
                 flySpeed.z *= Mathf.Pow(.9f, Time.deltaTime);
+
+                if (!hideTriggered && (visual.transform.position - flyer.position).magnitude > 64)
+                {
+                    hideTriggered = true;
+
+                    MoodWorldsManager.TriggerHide(groundSpeed);
+                }
             }
             else
             {
@@ -81,6 +89,7 @@ namespace MoodWorlds
 
             Debug.Log("Controller moved: " + distance.magnitude + " over " + time + "s: " + distance.magnitude / time + "dm/s");
 
+            hideTriggered = false;
             flySpeed = distance / (float)time;
             flyUntilTime = Time.realtimeSinceStartup + 2 + Mathf.Sqrt(flySpeed.magnitude / 10);
         }
