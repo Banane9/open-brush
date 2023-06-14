@@ -40,8 +40,9 @@ namespace MoodWorlds
             {
                 var available = i >= min && i <= max;
 
-                foreach (var button in stageButtons[i])
-                    button.SetButtonAvailable(available);
+                if (i >= 0 && i < stageButtons.Length)
+                    foreach (var button in stageButtons[i])
+                        button.SetButtonAvailable(available);
             }
         }
 
@@ -89,7 +90,7 @@ namespace MoodWorlds
 
         private void Start()
         {
-            stageButtons = stages.Select(stage => stage.GetComponentsInChildren<BaseButton>()).ToArray();
+            stageButtons = stages.Select(stage => stage.GetComponentsInChildren<MoodWorldsActionButton>()).ToArray();
 
             SetButtonsAvailable(0);
         }

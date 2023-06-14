@@ -18,6 +18,10 @@ namespace Assets.Scripts.MoodWorlds
         {
             SetButtonActivated(MoodWorldsManager.Stage == TargetStage);
 
+            if ((MoodWorldsManager.Stage & MoodWorldsStage.ReturningToPositiveWorld) > 0
+             && (TargetStage & MoodWorldsStage.ReturningToPositiveWorld) > 0)
+                SetButtonAvailable(MoodWorldsManager.Stage == TargetStage);
+
             base.UpdateVisuals();
         }
     }

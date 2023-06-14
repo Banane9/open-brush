@@ -35,7 +35,7 @@ namespace MoodWorlds
         {
             base.OnCommandActivated();
 
-            commandStartTime = Time.realtimeSinceStartup;
+            commandStartTime = Time.realtimeSinceStartupAsDouble;
             startPosition = InputManager.m_Instance.GetBrushControllerAttachPoint().position;
         }
 
@@ -68,7 +68,7 @@ namespace MoodWorlds
                 flySpeed.x *= Mathf.Pow(.9f, Time.deltaTime);
                 flySpeed.z *= Mathf.Pow(.9f, Time.deltaTime);
 
-                if (!hideTriggered && (visual.transform.position - flyer.position).magnitude > 64)
+                if (!hideTriggered && (visual.transform.position - flyer.position).magnitude > 42)
                 {
                     hideTriggered = true;
 
@@ -84,18 +84,18 @@ namespace MoodWorlds
 
         protected override void OnCommandDeactivated()
         {
-            var time = Time.realtimeSinceStartup - commandStartTime;
+            var time = Time.realtimeSinceStartupAsDouble - commandStartTime;
             var distance = InputManager.m_Instance.GetBrushControllerAttachPoint().position - startPosition;
 
             Debug.Log("Controller moved: " + distance.magnitude + " over " + time + "s: " + distance.magnitude / time + "dm/s");
 
             hideTriggered = false;
             flySpeed = distance / (float)time;
-            flyUntilTime = Time.realtimeSinceStartup + 2 + Mathf.Sqrt(flySpeed.magnitude / 10);
+            flyUntilTime = Time.realtimeSinceStartupAsDouble + 2 + Mathf.Sqrt(flySpeed.magnitude / 10);
         }
 
         public override bool InputBlocked() => AnimationActive || base.InputBlocked();
 
-        public bool AnimationActive => (flyUntilTime - Time.realtimeSinceStartup) > 0;
+        public bool AnimationActive => (flyUntilTime - Time.realtimeSinceStartupAsDouble) > 0;
     }
 }

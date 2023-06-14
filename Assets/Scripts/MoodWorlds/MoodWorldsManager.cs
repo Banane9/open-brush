@@ -9,6 +9,11 @@ namespace MoodWorlds
 {
     public static class MoodWorldsManager
     {
+        private static bool curEnvironmentPositive = true;
+        private static CustomLights prevLights;
+        private static CustomEnvironment prevBackdrop;
+        private static TiltBrush.Environment prevEnvironment;
+
         private static BaseTool.ToolType? previousActiveTool;
         private static MoodWorldsStage stage = MoodWorldsStage.CreatingPositiveWorld;
 
@@ -50,6 +55,11 @@ namespace MoodWorlds
         public static void SetCreatingNegativeWorld()
         {
             Stage = MoodWorldsStage.CreatingNegativeWorld;
+            SwitchEnvironment(false);
+
+            App.Scene.ActiveCanvas.gameObject.SetActive(false);
+            foreach (var canvas in App.Scene.AllCanvases.Skip(1))
+                canvas.gameObject.SetActiveRecursively(true);
 
             SetPreviousTool();
         }
@@ -57,6 +67,11 @@ namespace MoodWorlds
         public static void SetCreatingPositiveWorld()
         {
             Stage = MoodWorldsStage.CreatingPositiveWorld;
+            SwitchEnvironment(true);
+
+            App.Scene.ActiveCanvas.gameObject.SetActive(true);
+            foreach (var canvas in App.Scene.AllCanvases.Skip(1))
+                canvas.gameObject.SetActive(false);
 
             SetPreviousTool();
         }
@@ -71,6 +86,11 @@ namespace MoodWorlds
         public static void SetReturnedToPositiveWorld()
         {
             Stage = MoodWorldsStage.ReturnedToPositiveWorld;
+            SwitchEnvironment(true);
+
+            App.Scene.MainCanvas.gameObject.SetActive(true);
+            foreach (var canvas in App.Scene.AllCanvases.Skip(1))
+                canvas.gameObject.SetActive(false);
 
             SetPreviousTool();
         }
@@ -95,7 +115,12 @@ namespace MoodWorlds
 
             if (canvasSlice.gameObject.activeSelf)
                 if (canvasSlice.transform.Cast<Transform>().FirstOrDefault(tf => tf.gameObject.activeSelf) is Transform activeBatch)
+                {
                     activeBatch.gameObject.SetActive(false);
+
+                    if (canvasSlice.transform.GetChild(canvasSlice.transform.childCount - 1) == activeBatch)
+                        canvasSlice.gameObject.SetActive(false);
+                }
                 else
                     canvasSlice.gameObject.SetActive(false);
 
@@ -120,6 +145,36 @@ namespace MoodWorlds
             SketchSurfacePanel.m_Instance.EnableSpecificTool(previousActiveTool.Value);
 
             previousActiveTool = null;
+        }
+
+        private static void SwitchEnvironment(bool newEnvironmentPositive)
+        {
+            if (curEnvironmentPositive == newEnvironmentPositive)
+                return;
+
+            var curLights = LightsControlScript.m_Instance.CustomLights;
+            var curBackdrop = SceneSettings.m_Instance.CustomEnvironment;
+            var curEnvironment = SceneSettings.m_Instance.CurrentEnvironment;
+
+            SceneSettings.m_Instance.RecordSkyColorsForFading();
+
+            // prevBackdrop can only be != null, when the environment was switched before
+            if (prevBackdrop != null)
+                SceneSettings.m_Instance.SetCustomEnvironment(prevBackdrop, prevEnvironment);
+
+            SceneSettings.m_Instance.SetDesiredPreset(
+                prevEnvironment != null ? prevEnvironment : EnvironmentCatalog.m_Instance.DefaultEnvironment,
+                keepSceneTransform: true,
+                forceTransition: prevEnvironment == curEnvironment && prevBackdrop == null && prevLights == null,
+                hasCustomLights: prevLights != null);
+
+            if (prevLights != null)
+                LightsControlScript.m_Instance.CustomLights = prevLights;
+
+            prevLights = curLights;
+            prevBackdrop = curBackdrop;
+            prevEnvironment = curEnvironment;
+            curEnvironmentPositive = newEnvironmentPositive;
         }
     }
 }
