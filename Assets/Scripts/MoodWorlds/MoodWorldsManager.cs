@@ -1,8 +1,10 @@
+using ODS;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TiltBrush;
+using UnityAsyncAwaitUtil;
 using UnityEngine;
 
 namespace MoodWorlds
@@ -127,6 +129,21 @@ namespace MoodWorlds
             if (App.Scene.LayerCanvases.Skip(1).All(canvas => !canvas.gameObject.activeSelf || canvas.gameObject.transform.childCount == 0))
                 MoodWorldsPanel.Instance.SetReturnedToPositiveWorld();
         }
+
+        //private static Texture2D Take360Snapshot()
+        //{
+        //    var odsDriver = App.Instance.InitOds();
+        //    App.Scene.AsScene[odsDriver.gameObject.transform] = tr;
+        //    odsDriver.FramesToCapture = 1;
+        //    odsDriver.OdsCamera.basename = filename;
+        //    odsDriver.OdsCamera.outputFolder = App.SnapshotPath();
+        //    odsDriver.OdsCamera.imageWidth = width;
+        //    odsDriver.OdsCamera.outputFolder = App.SnapshotPath();
+        //    odsDriver.OdsCamera.SetOdsRendererType(HybridCamera.OdsRendererType.Slice);
+        //    odsDriver.OdsCamera.gameObject.SetActive(true);
+        //    odsDriver.OdsCamera.enabled = true;
+        //    AsyncCoroutineRunner.Instance.StartCoroutine(odsDriver.OdsCamera.Render(odsDriver.transform));
+        //}
 
         private static void SetNewTool(BaseTool.ToolType type)
         {

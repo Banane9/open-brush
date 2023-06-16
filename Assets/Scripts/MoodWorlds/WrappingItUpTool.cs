@@ -12,23 +12,20 @@ namespace Assets.Scripts.MoodWorlds
     public class WrappingItUpTool : MoodWorldsTool
     {
         [SerializeField]
-        private Transform cameraPov;
+        private Camera previewCamera;
 
-        private Vector3 freezePosition;
-        private Quaternion freezeRotation;
-        private double freezeCameraUntilTime;
+        [SerializeField]
+        private Material previewScreen;
+
+        [SerializeField]
+        private double flashDuration;
+
+        [SerializeField]
+        private double freezeCameraDuration;
+
+        private double freezeCameraTime;
+        private Vector3 freezeDirection;
         private bool waitingForHide;
-
-        private Vector3 originalLocalPosition;
-        private Quaternion originalLocalRotation;
-
-        public override void Init()
-        {
-            base.Init();
-
-            originalLocalPosition = cameraPov.localPosition;
-            originalLocalRotation = cameraPov.localRotation;
-        }
 
         protected override bool CommandActive()
         {
@@ -40,13 +37,23 @@ namespace Assets.Scripts.MoodWorlds
             base.LateUpdateTool();
 
             if (AnimationActive)
-                cameraPov.SetPositionAndRotation(freezePosition, freezeRotation);
+            {
+                previewCamera.enabled = false;
+
+                if ((freezeCameraTime + flashDuration) < Time.realtimeSinceStartupAsDouble)
+                    previewScreen.SetTexture("_MainTex", null);
+                else
+                    previewScreen.SetTexture("_MainTex", previewCamera.targetTexture);
+            }
             else
             {
                 if (waitingForHide)
-                    MoodWorldsManager.TriggerHide(cameraPov.forward);
+                {
+                    waitingForHide = false;
+                    MoodWorldsManager.TriggerHide(freezeDirection);
+                }
 
-                cameraPov.SetLocalPositionAndRotation(originalLocalPosition, originalLocalRotation);
+                previewCamera.enabled = true;
             }
         }
 
@@ -55,12 +62,11 @@ namespace Assets.Scripts.MoodWorlds
             base.OnCommandActivated();
 
             waitingForHide = true;
-            freezePosition = cameraPov.position;
-            freezeRotation = cameraPov.rotation;
-            freezeCameraUntilTime = Time.realtimeSinceStartupAsDouble + 1;
+            freezeCameraTime = Time.realtimeSinceStartupAsDouble;
+            freezeDirection = InputManager.m_Instance.GetBrushControllerAttachPoint().forward;
         }
 
-        public bool AnimationActive => (freezeCameraUntilTime - Time.realtimeSinceStartupAsDouble) > 0;
+        public bool AnimationActive => (freezeCameraTime + freezeCameraDuration) < Time.realtimeSinceStartupAsDouble;
 
         public override bool InputBlocked()
         {

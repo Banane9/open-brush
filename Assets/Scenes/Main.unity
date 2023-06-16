@@ -14427,12 +14427,12 @@ GameObject:
   - component: {fileID: 996388999}
   - component: {fileID: 996389000}
   m_Layer: 0
-  m_Name: WrappingItUpTool
+  m_Name: lrappingItUpTool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &996388999
 Transform:
   m_ObjectHideFlags: 0
@@ -14465,7 +14465,10 @@ MonoBehaviour:
   m_Type: 268435457
   m_ExitOnAbortCommand: 1
   m_ScalingSupported: 0
-  cameraPov: {fileID: 1029868633}
+  previewCamera: {fileID: 1029868634}
+  previewScreen: {fileID: 2100000, guid: e45346a98a98c37468e86745ed928a32, type: 2}
+  flashDuration: 0.15
+  freezeCameraDuration: 1
 --- !u!1 &996567218
 GameObject:
   m_ObjectHideFlags: 0
@@ -30432,7 +30435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1804317401
 Transform:
   m_ObjectHideFlags: 0
