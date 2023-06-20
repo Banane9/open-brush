@@ -18,6 +18,9 @@ namespace Assets.Scripts.MoodWorlds
         private Material previewScreen;
 
         [SerializeField]
+        private AudioSource clickSource;
+
+        [SerializeField]
         private double flashDuration;
 
         [SerializeField]
@@ -64,6 +67,8 @@ namespace Assets.Scripts.MoodWorlds
             waitingForHide = true;
             freezeCameraTime = Time.realtimeSinceStartupAsDouble;
             freezeDirection = InputManager.m_Instance.GetBrushControllerAttachPoint().forward;
+
+            clickSource.Play();
         }
 
         public bool AnimationActive => (freezeCameraTime + freezeCameraDuration) < Time.realtimeSinceStartupAsDouble;
