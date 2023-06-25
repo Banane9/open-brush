@@ -3694,6 +3694,75 @@ Transform:
   m_Father: {fileID: 268266638}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &172775731
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991718254554378924, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_Name
+      value: WrappingItUpWidget
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba6b1f39a6c233e44bccc1c1146a4b0e, type: 3}
 --- !u!1001 &177030158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14523,7 +14592,7 @@ GameObject:
   - component: {fileID: 996388999}
   - component: {fileID: 996389000}
   m_Layer: 0
-  m_Name: lrappingItUpTool
+  m_Name: WrappingItUpTool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

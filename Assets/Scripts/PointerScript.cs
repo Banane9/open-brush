@@ -878,12 +878,12 @@ namespace TiltBrush
 
         public float GetCurrentRadialSegmentPosition()
         {
-            return MoodWorldsManager.GetRadialSegmentPosition(gameObject.transform.position);
+            return MoodWorldsManager.GetRadialSegmentPosition(gameObject.transform.position - ViewpointScript.Head.position);
         }
 
         public int GetCurrentRadialSegment()
         {
-            return MoodWorldsManager.GetRadialSegment(gameObject.transform.position);
+            return MoodWorldsManager.GetRadialSegment(gameObject.transform.position - ViewpointScript.Head.position);
         }
 
         /// Like BeginLineFromMemory + EndLineFromMemory
