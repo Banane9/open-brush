@@ -18,6 +18,12 @@ namespace MoodWorlds
         private Transform flyerPitch;
         private bool hideTriggered;
 
+        [SerializeField]
+        private float thresholdSpeed;
+
+        [SerializeField]
+        private Material visualMaterial;
+
         public override void Init()
         {
             base.Init();
@@ -79,6 +85,11 @@ namespace MoodWorlds
             {
                 flyer.SetLocalPositionAndRotation(visual.transform.localPosition, visual.transform.localRotation);
                 flyerPitch.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+                if (CommandActive())
+                    visualMaterial.color = new(1, 1, 1, .8f);
+                else
+                    visualMaterial.color = new(1, 1, 1, .3f);
             }
         }
 
@@ -86,12 +97,16 @@ namespace MoodWorlds
         {
             var time = Time.realtimeSinceStartupAsDouble - commandStartTime;
             var distance = InputManager.m_Instance.GetBrushControllerAttachPoint().position - startPosition;
+            var speed = distance / (float)time;
 
-            Debug.Log("Controller moved: " + distance.magnitude + " over " + time + "s: " + distance.magnitude / time + "dm/s");
+            Debug.Log("Controller moved: " + distance.magnitude + " over " + time + "s: " + speed.magnitude + "dm/s");
 
-            hideTriggered = false;
-            flySpeed = distance / (float)time;
-            flyUntilTime = Time.realtimeSinceStartupAsDouble + 2 + Mathf.Sqrt(flySpeed.magnitude / 10);
+            if (speed.magnitude >= thresholdSpeed)
+            {
+                hideTriggered = false;
+                flySpeed = speed;
+                flyUntilTime = Time.realtimeSinceStartupAsDouble + 2 + Mathf.Sqrt(flySpeed.magnitude / 10);
+            }
         }
 
         public override bool InputBlocked() => AnimationActive || base.InputBlocked();

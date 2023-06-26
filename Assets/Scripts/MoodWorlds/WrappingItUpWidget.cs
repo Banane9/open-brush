@@ -19,30 +19,36 @@ namespace MoodWorlds
         [SerializeField]
         private RenderTexture renderTarget;
 
+        private bool wrappingUp;
+
         private void Update()
         {
-            transform.position = ViewpointScript.Head.position;
-
-            if (MoodWorldsManager.Stage != MoodWorldsStage.WrappingItUp && MoodWorldsManager.Stage != MoodWorldsStage.ReturnedToPositiveWorld)
+            if (MoodWorldsManager.Stage == MoodWorldsStage.WrappingItUp && !wrappingUp)
             {
-                visual.SetActive(false);
-                return;
-            }
-
-            if (!visual.activeSelf)
-            {
+                wrappingUp = true;
                 visual.SetActive(true);
 
                 var position = ViewpointScript.Head.position;
-                position.y -= 1;
+                position.y = 8f;
 
                 var gaze = ViewpointScript.Gaze.direction.normalized;
                 gaze.y = 0;
 
-                visual.transform.position = position + 1.5f * gaze;
+                visual.transform.position = position + 4f * gaze;
 
+                renderCamera.enabled = true;
                 renderCamera.RenderToCubemap(renderTarget);
+                renderCamera.enabled = false;
             }
+            else if (MoodWorldsManager.Stage != MoodWorldsStage.WrappingItUp && MoodWorldsManager.Stage != MoodWorldsStage.ReturnedToPositiveWorld)
+            {
+                wrappingUp = false;
+                visual.SetActive(false);
+            }
+
+            if (!wrappingUp)
+                transform.position = ViewpointScript.Head.position;
+
 
             // Add code to update the slices shown of the render
         }

@@ -43,7 +43,7 @@ namespace Assets.Scripts.MoodWorlds
             {
                 previewCamera.enabled = false;
 
-                if ((freezeCameraTime + flashDuration) < Time.realtimeSinceStartupAsDouble)
+                if ((freezeCameraTime + flashDuration) > Time.realtimeSinceStartupAsDouble)
                     previewScreen.SetTexture("_MainTex", null);
                 else
                     previewScreen.SetTexture("_MainTex", previewCamera.targetTexture);
@@ -57,6 +57,7 @@ namespace Assets.Scripts.MoodWorlds
                 }
 
                 previewCamera.enabled = true;
+                previewScreen.SetTexture("_MainTex", previewCamera.targetTexture);
             }
         }
 
@@ -71,7 +72,7 @@ namespace Assets.Scripts.MoodWorlds
             clickSource.Play();
         }
 
-        public bool AnimationActive => (freezeCameraTime + freezeCameraDuration) < Time.realtimeSinceStartupAsDouble;
+        public bool AnimationActive => (freezeCameraTime + freezeCameraDuration) > Time.realtimeSinceStartupAsDouble;
 
         public override bool InputBlocked()
         {

@@ -32,7 +32,7 @@ namespace Assets.Scripts.MoodWorlds
 
             GetComponent<MeshFilter>().mesh = mesh;
 
-            materials = Enumerable.Repeat(new Material(Shader.Find("UI/Unlit/Transparent")), MoodWorldsManager.RadialSegments).ToArray();
+            materials = Enumerable.Repeat<Material>(null, MoodWorldsManager.RadialSegments).Select(_ => new Material(Shader.Find("UI/Unlit/Transparent"))).ToArray();
             GetComponent<MeshRenderer>().materials = materials;
         }
 
@@ -60,7 +60,7 @@ namespace Assets.Scripts.MoodWorlds
         private void LateUpdate()
         {
             var position = ViewpointScript.Head.position;
-            position.y = .01f;
+            position.y = .05f;
             transform.position = position;
 
             var layers = App.Scene.LayerCanvases.Skip(1).ToArray();
@@ -68,14 +68,20 @@ namespace Assets.Scripts.MoodWorlds
 
             for (var i = 0; i < materials.Length; ++i)
             {
-                if (wrongStage || i >= layers.Length || !layers[i].gameObject.activeSelf || layers[i].transform.childCount == 0)
+                if (wrongStage)
                 {
                     materials[i].color = new Color(1, 1, 1, 0);
                     continue;
                 }
 
+                if (i >= layers.Length || !layers[i].gameObject.activeSelf || layers[i].transform.childCount == 0)
+                {
+                    materials[i].color = new Color(1, 1, 1, .1f);
+                    continue;
+                }
+
                 var activeChildren = layers[i].transform.Cast<Transform>().Count(tr => tr.gameObject.activeSelf);
-                materials[i].color = new Color(1, 1, 1, Mathf.Lerp(.4f, 1, activeChildren / layers[i].transform.childCount));
+                materials[i].color = new Color(1, 1, 1, Mathf.Lerp(.25f, .45f, activeChildren / layers[i].transform.childCount));
             }
         }
     }
