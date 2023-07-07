@@ -27,9 +27,9 @@ MonoBehaviour:
   m_IconTexture: {fileID: 2800000, guid: f8a20cdea20568c4ead6a9ad5185b891, type: 3}
   m_RenderSettings:
     m_FogEnabled: 1
-    m_FogColor: {r: 1, g: 1, b: 0.9725491, a: 1}
+    m_FogColor: {r: 0.9528302, g: 0.9528302, b: 0.84046817, a: 1}
     m_FogDensity: 0.001
-    m_FogStartDistance: 100
+    m_FogStartDistance: 500
     m_FogEndDistance: 0
     m_ClearColor: {r: 0.5058824, g: 0.6313726, b: 0.8196079, a: 1}
     m_AmbientColor: {r: 1, g: 1, b: 0.95294124, a: 1}
@@ -43,7 +43,7 @@ MonoBehaviour:
     m_ReflectionIntensity: 0.3
   m_Lights:
   - m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-    m_Intensity: 0.75
+    m_Intensity: 0.7
     m_Position: {x: 0, y: 0, z: 8}
     m_Rotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
     m_Type: 1
@@ -51,7 +51,7 @@ MonoBehaviour:
     m_SpotAngle: 30
     m_ShadowsEnabled: 1
   - m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-    m_Intensity: 0.3
+    m_Intensity: 0.2
     m_Position: {x: 0, y: 0, z: 8}
     m_Rotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
     m_Type: 1
