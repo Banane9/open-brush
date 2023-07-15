@@ -109,7 +109,8 @@ namespace TiltBrush
             SnapSettings = 8000,
             StencilSettings = 20200,
             LayersPanel = 15000,
-            MoodWorldsPanel = 69000
+            MoodWorldsPanel = 69000,
+            MoodWorldsInfoPanel = MoodWorldsPanel + 1
         }
 
         private enum FixedTransitionState

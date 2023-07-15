@@ -33,7 +33,7 @@ Shader "Unlit/CubeMap" {
                 }
                 ENDCG
 
-                ZWrite Off
+                ZWrite On
                 Cull Front
                 Blend SrcAlpha OneMinusSrcAlpha
             }

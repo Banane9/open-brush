@@ -8,16 +8,16 @@ using UnityEngine;
 
 namespace MoodWorlds
 {
-    public class InformationPanel : MonoBehaviour
+    public class InformationPanel : BasePanel
     {
         public MoodWorldsStage[] Stages;
         public GameObject[] StageVisuals;
         public GameObject Visual;
+        public GameObject VirtualRoot;
 
         private bool moving;
         private MoodWorldsStage shownStage;
         private Dictionary<MoodWorldsStage, GameObject> stageMap;
-        public static InformationPanel Instance { get; private set; }
 
         public bool Dismissed
         {
@@ -32,29 +32,33 @@ namespace MoodWorlds
             Dismissed = true;
         }
 
-        private void Awake()
+        protected override void Awake()
         {
-            Instance = this;
+            base.Awake();
+
             stageMap = Enumerable.Range(0, Math.Min(Stages.Length, StageVisuals.Length)).ToDictionary(i => Stages[i], i => StageVisuals[i]);
 
             foreach (var stage in StageVisuals)
                 stage.SetActive(false);
+
+            var offsetDirection = ViewpointScript.Gaze.direction;
+            offsetDirection.y = 0;
+
+            var lookDirection = Visual.transform.position - ViewpointScript.Head.position;
+            lookDirection.y = 0;
+
+            var newPosition = ViewpointScript.Head.position + 10 * offsetDirection.normalized;
+            newPosition.y -= -1f;
+
+            Visual.transform.position = newPosition;
+            Visual.transform.LookAt(Visual.transform.position + lookDirection.normalized);
         }
 
         private void Update()
         {
-            var direction = ViewpointScript.Gaze.direction;
-            direction.y = 0;
+            BaseUpdate();
 
-            var newPosition = ViewpointScript.Head.position + 20 * direction;
-
-            if (moving || (newPosition - transform.position).magnitude > 4)
-            {
-                transform.position = Vector3.Lerp(transform.position, newPosition, Mathf.SmoothStep(0, 1, Time.deltaTime));
-                transform.LookAt(transform.position + direction);
-
-                moving = (newPosition - transform.position).magnitude > 1;
-            }
+            VirtualRoot.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
 
             if (MoodWorldsManager.Stage == shownStage)
                 return;
@@ -64,6 +68,26 @@ namespace MoodWorlds
 
             for (var i = 0; i < stages; ++i)
                 StageVisuals[i].SetActive(Stages[i] == MoodWorldsManager.Stage);
+        }
+
+        private void LateUpdate()
+        {
+            var offsetDirection = ViewpointScript.Gaze.direction;
+            offsetDirection.y = 0;
+
+            var lookDirection = Visual.transform.position - ViewpointScript.Head.position;
+            lookDirection.y = 0;
+
+            var newPosition = ViewpointScript.Head.position + 10 * offsetDirection.normalized;
+            newPosition.y -= -1f;
+
+            if (moving || (newPosition - Visual.transform.position).magnitude > 4)
+            {
+                Visual.transform.position = Vector3.Lerp(Visual.transform.position, newPosition, Mathf.SmoothStep(0, 1, 10 * Time.deltaTime));
+                Visual.transform.transform.LookAt(Visual.transform.position + lookDirection.normalized);
+
+                moving = (newPosition - Visual.transform.position).magnitude > 1;
+            }
         }
     }
 }

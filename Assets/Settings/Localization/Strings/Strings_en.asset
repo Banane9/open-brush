@@ -3156,6 +3156,88 @@ MonoBehaviour:
     m_Localized: Return to positive world
     m_Metadata:
       m_Items: []
+  - m_Id: 123557303260913664
+    m_Localized: MoodWorlds Info Panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123558609031634944
+    m_Localized: Dismiss panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123560005797781504
+    m_Localized: 'Great, now that you''ve created your <i>positive world</i>, it''s
+      time to create your <i>negative world</i>.
+
+      This should be a drawing
+      and environment which puts you into a bad mood.
+
+      You can go back to your
+      <i>positive world</i> through the <b>MoodWorlds</b> menu.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123561213753139200
+    m_Localized: 'One of the ways to deal with negative experiences is, to free yourself
+      from them.
+
+      To facilitate this, you can now "throw away" what''s putting
+      you in a bad mood.
+
+      Simply throw the airplane at your sketch using the
+      trigger and watch it disappear. The indicator on the ground shows you where
+      there''s something left.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123561292874489856
+    m_Localized: 'One of the ways to deal with negative experiences is, to keep a
+      connection to it, but separate them from you.
+
+      To facilitate this, you
+      can now "wrap up" what''s putting you in a bad mood into the glass ball.
+
+      Simply
+      take pictures of your sketch with the camera using the trigger and watch it
+      disappear into the ball. The indicator on the ground shows you where there''s
+      something left.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123561363137470464
+    m_Localized: 'One of the ways to deal with negative experiences is, to take them
+      in as a part of you.
+
+      To facilitate this, you can now "tie in" what''s
+      putting you in a bad mood into yourself.
+
+      Simply pull it towards you
+      using the triggers and watch it disappear into you. The indicator on the ground
+      shows you where there''s something left.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123561425682931712
+    m_Localized: 'Welcome back to your <i>positive world</i>.
+
+
+      Now you can
+      take a moment to get into a positive mood again - feel free to add to your
+      drawing or otherwise integrate your experience.
+
+
+      <b>Thanks for your
+      participation!</b>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123560177491615744
+    m_Localized: '<u>Welcome to <b>MoodWorlds</u>
+
+      <size=73%>This is an interactive
+      tool to help you deal with negative emotions.
+
+      To begin, dismiss this
+      panel and create a <i>positive world.</i>
+
+      Make sure to pick an environment
+      that you like, and draw something that puts you in a good mood.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

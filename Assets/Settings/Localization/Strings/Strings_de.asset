@@ -2792,6 +2792,14 @@ MonoBehaviour:
     m_Localized: "Kehre zur positiven Welt zur\xFCck"
     m_Metadata:
       m_Items: []
+  - m_Id: 123557303260913664
+    m_Localized: MoodWorlds Info Panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123558609031634944
+    m_Localized: "Fenster schlie\xDFen"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

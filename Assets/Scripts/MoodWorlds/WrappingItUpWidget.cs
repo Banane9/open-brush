@@ -34,7 +34,7 @@ namespace MoodWorlds
                 var gaze = ViewpointScript.Gaze.direction.normalized;
                 gaze.y = 0;
 
-                visual.transform.position = position + 4f * gaze;
+                visual.transform.position = position + 10f * gaze;
 
                 renderCamera.enabled = true;
                 renderCamera.RenderToCubemap(renderTarget);
