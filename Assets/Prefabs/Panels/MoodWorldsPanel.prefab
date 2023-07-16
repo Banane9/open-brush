@@ -1420,7 +1420,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114666146255114844}
         m_TargetAssemblyTypeName: MoodWorlds.MoodWorldsPanel, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SetReturnedToPositiveWorld
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1604,10 +1604,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 457820}
     m_Modifications:
+    - target: {fileID: 1667883265205329092, guid: 9c466e0941371b34391facc8d66fe5e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932989613350426125, guid: 9c466e0941371b34391facc8d66fe5e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131604439371851224, guid: 9c466e0941371b34391facc8d66fe5e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7127536002959643748, guid: 9c466e0941371b34391facc8d66fe5e4,
         type: 3}
       propertyPath: m_Name
       value: Stretchable Border
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127536002959643748, guid: 9c466e0941371b34391facc8d66fe5e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7611585398892383966, guid: 9c466e0941371b34391facc8d66fe5e4,
         type: 3}

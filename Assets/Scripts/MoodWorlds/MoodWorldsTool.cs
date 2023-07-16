@@ -7,7 +7,8 @@ namespace MoodWorlds
     {
         private bool alreadyActive;
         private bool armed;
-        protected GameObject visual;
+        protected GameObject brushVisual;
+        protected GameObject wandVisual;
 
         public override void EnableTool(bool bEnable)
         {
@@ -24,14 +25,16 @@ namespace MoodWorlds
         public override void HideTool(bool bHide)
         {
             base.HideTool(bHide);
-            visual.SetActive(!bHide);
+            brushVisual?.SetActive(!bHide);
+            wandVisual?.SetActive(!bHide);
         }
 
         public override void Init()
         {
             base.Init();
 
-            visual = transform.Find("Visual").gameObject;
+            brushVisual = transform.Find("BrushVisual")?.gameObject;
+            wandVisual = transform.Find("WandVisual")?.gameObject;
         }
 
         public override bool InputBlocked() => !armed;
@@ -87,17 +90,27 @@ namespace MoodWorlds
 
         private void UpdateTransformsFromControllers()
         {
-            Transform rAttachPoint = InputManager.m_Instance.GetBrushControllerAttachPoint();
-            // Lock tool to camera controller.
-            //if (m_LockToController)
-            //{
-            visual.transform.SetPositionAndRotation(rAttachPoint.position, rAttachPoint.rotation);
-            //}
-            //else
-            //{
-            //    transform.position = SketchSurfacePanel.m_Instance.transform.position;
-            //    transform.rotation = SketchSurfacePanel.m_Instance.transform.rotation;
-            //}
+            if (brushVisual != null)
+            {
+                var brushAttachPoint = InputManager.m_Instance.GetBrushControllerAttachPoint();
+                // Lock tool to camera controller.
+                //if (m_LockToController)
+                //{
+                brushVisual.transform.SetPositionAndRotation(brushAttachPoint.position, brushAttachPoint.rotation);
+                //}
+                //else
+                //{
+                //    transform.position = SketchSurfacePanel.m_Instance.transform.position;
+                //    transform.rotation = SketchSurfacePanel.m_Instance.transform.rotation;
+                //}
+            }
+
+            if (wandVisual != null)
+            {
+
+                var wandAttachPoint = InputManager.m_Instance.GetWandControllerAttachPoint();
+                wandVisual.transform.SetPositionAndRotation(wandAttachPoint.position, wandAttachPoint.rotation);
+            }
         }
     }
 }

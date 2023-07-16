@@ -49,7 +49,7 @@ namespace MoodWorlds
         {
             base.UpdateTool();
 
-            visual.SetActive(!AnimationActive);
+            brushVisual.SetActive(!AnimationActive);
             flyer.gameObject.SetActive(AnimationActive);
 
             if (AnimationActive)
@@ -74,7 +74,7 @@ namespace MoodWorlds
                 flySpeed.x *= Mathf.Pow(.9f, Time.deltaTime);
                 flySpeed.z *= Mathf.Pow(.9f, Time.deltaTime);
 
-                if (!hideTriggered && (visual.transform.position - flyer.position).magnitude > 42)
+                if (!hideTriggered && (brushVisual.transform.position - flyer.position).magnitude > 42)
                 {
                     hideTriggered = true;
 
@@ -83,7 +83,7 @@ namespace MoodWorlds
             }
             else
             {
-                flyer.SetLocalPositionAndRotation(visual.transform.localPosition, visual.transform.localRotation);
+                flyer.SetLocalPositionAndRotation(brushVisual.transform.localPosition, brushVisual.transform.localRotation);
                 flyerPitch.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
 
                 if (CommandActive())

@@ -31,68 +31,39 @@ namespace MoodWorlds
             Instance = null;
         }
 
-        public void SetButtonsAvailable(int stageIndex)
-        {
-            var max = stageIndex + 1;
-            var min = stageIndex - 1;
-
-            for (var i = 0; i < stageButtons.Length; ++i)
-            {
-                var available = i >= min && i <= max;
-
-                if (i >= 0 && i < stageButtons.Length)
-                    foreach (var button in stageButtons[i])
-                        button.SetButtonAvailable(available);
-            }
-        }
-
         public void SetCreatingNegativeWorld()
         {
             MoodWorldsManager.SetCreatingNegativeWorld();
-
-            SetButtonsAvailable(1);
         }
 
         public void SetCreatingPositiveWorld()
         {
             MoodWorldsManager.SetCreatingPositiveWorld();
-
-            SetButtonsAvailable(0);
         }
 
         public void SetLettingItGo()
         {
             MoodWorldsManager.SetLettingItGo();
-
-            SetButtonsAvailable(2);
         }
 
         public void SetTyingItIn()
         {
             MoodWorldsManager.SetTyingItIn();
-
-            SetButtonsAvailable(2);
         }
 
         public void SetWrappingItUp()
         {
             MoodWorldsManager.SetWrappingItUp();
-
-            SetButtonsAvailable(2);
         }
 
         public void SetReturnedToPositiveWorld()
         {
             MoodWorldsManager.SetReturnedToPositiveWorld();
-
-            SetButtonsAvailable(4);
         }
 
         private void Start()
         {
             stageButtons = stages.Select(stage => stage.GetComponentsInChildren<MoodWorldsActionButton>()).ToArray();
-
-            SetButtonsAvailable(0);
         }
     }
 }

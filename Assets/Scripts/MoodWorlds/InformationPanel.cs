@@ -48,7 +48,7 @@ namespace MoodWorlds
             lookDirection.y = 0;
 
             var newPosition = ViewpointScript.Head.position + 10 * offsetDirection.normalized;
-            newPosition.y -= -1f;
+            newPosition.y = .75f;
 
             Visual.transform.position = newPosition;
             Visual.transform.LookAt(Visual.transform.position + lookDirection.normalized);
@@ -79,7 +79,7 @@ namespace MoodWorlds
             lookDirection.y = 0;
 
             var newPosition = ViewpointScript.Head.position + 10 * offsetDirection.normalized;
-            newPosition.y -= -1f;
+            newPosition.y -= .75f;
 
             if (moving || (newPosition - Visual.transform.position).magnitude > 4)
             {

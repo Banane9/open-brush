@@ -27,12 +27,15 @@ namespace MoodWorlds
 
         public static float RadialSegmentTolerance => App.UserConfig.MoodWorlds.RadialTolerance;
 
+        public static double StageChangeTime { get; private set; }
+
         public static MoodWorldsStage Stage
         {
             get => stage;
             private set
             {
                 stage = value;
+                StageChangeTime = Time.realtimeSinceStartupAsDouble;
                 Debug.Log("MoodWorlds stage set to " + stage);
             }
         }
@@ -127,23 +130,8 @@ namespace MoodWorlds
                     canvasSlice.gameObject.SetActive(false);
 
             if (App.Scene.LayerCanvases.Skip(1).All(canvas => !canvas.gameObject.activeSelf || canvas.gameObject.transform.childCount == 0))
-                MoodWorldsPanel.Instance.SetReturnedToPositiveWorld();
+                SetReturnedToPositiveWorld();
         }
-
-        //private static Texture2D Take360Snapshot()
-        //{
-        //    var odsDriver = App.Instance.InitOds();
-        //    App.Scene.AsScene[odsDriver.gameObject.transform] = tr;
-        //    odsDriver.FramesToCapture = 1;
-        //    odsDriver.OdsCamera.basename = filename;
-        //    odsDriver.OdsCamera.outputFolder = App.SnapshotPath();
-        //    odsDriver.OdsCamera.imageWidth = width;
-        //    odsDriver.OdsCamera.outputFolder = App.SnapshotPath();
-        //    odsDriver.OdsCamera.SetOdsRendererType(HybridCamera.OdsRendererType.Slice);
-        //    odsDriver.OdsCamera.gameObject.SetActive(true);
-        //    odsDriver.OdsCamera.enabled = true;
-        //    AsyncCoroutineRunner.Instance.StartCoroutine(odsDriver.OdsCamera.Render(odsDriver.transform));
-        //}
 
         private static void SetNewTool(BaseTool.ToolType type)
         {
