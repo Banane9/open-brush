@@ -232,11 +232,13 @@ namespace TiltBrush
                     {
                         if (App.Config.GetIsExperimental())
                         {
-                            m_IncludeTags = new[] { "default", "experimental" };
+                            //m_IncludeTags = new[] { "default", "experimental" };
+                            m_IncludeTags = new[] { "moodworlds_basic" };
                         }
                         else
                         {
-                            m_IncludeTags = new[] { "default" };
+                            //m_IncludeTags = new[] { "default" };
+                            m_IncludeTags = new[] { "moodworlds_basic" };
                         }
                     }
                     return m_IncludeTags;
