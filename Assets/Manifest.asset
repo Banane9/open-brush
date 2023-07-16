@@ -97,4 +97,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c0393f9ef118b8b4eac658e169ac8497, type: 2}
   - {fileID: 11400000, guid: 1928962e383e7f04696634b06de5ff25, type: 2}
   BrushTags:
+  - {fileID: 11400000, guid: 24a97d1e2d18d224dad1241d07b5f021, type: 2}
   - {fileID: 11400000, guid: 9ba52360885087948ac45097cf9c897d, type: 2}

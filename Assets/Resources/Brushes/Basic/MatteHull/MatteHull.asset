@@ -19,6 +19,7 @@ MonoBehaviour:
   m_ShaderVersion: 10.0
   m_BrushPrefab: {fileID: 100000, guid: 10bb8f13b6441894a88aafbbdd33b9dc, type: 3}
   m_Tags:
+  - moodworlds_basic
   - whiteboard
   - default
   - hull
