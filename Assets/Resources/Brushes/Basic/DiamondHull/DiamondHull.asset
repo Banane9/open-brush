@@ -25,7 +25,6 @@ MonoBehaviour:
   m_Supersedes: {fileID: 0}
   m_LooksIdentical: 0
   m_ButtonTexture: {fileID: 2800000, guid: d6681ae7742bb62499aacdcbeb246bd9, type: 3}
-  m_Description: BRUSH_DIAMOND
   m_LocalizedDescription:
     m_TableReference:
       m_TableCollectionName: GUID:c84355079ab3f3e4f8f3812258805f86

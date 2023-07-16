@@ -23,7 +23,6 @@ MonoBehaviour:
   m_Supersedes: {fileID: 0}
   m_LooksIdentical: 0
   m_ButtonTexture: {fileID: 2800000, guid: 2a6f3c9b8378c024e91f32abbe220811, type: 3}
-  m_Description: BRUSH_WATERCOLORPAPERGEOMETRY
   m_LocalizedDescription:
     m_TableReference:
       m_TableCollectionName: GUID:c84355079ab3f3e4f8f3812258805f86
