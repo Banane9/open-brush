@@ -18,7 +18,7 @@ namespace Assets.Scripts.MoodWorlds
         private Material previewScreen;
 
         [SerializeField]
-        private AudioSource clickSource;
+        private GvrAudioSource clickSource;
 
         [SerializeField]
         private double flashDuration;
