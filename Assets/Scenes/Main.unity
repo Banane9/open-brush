@@ -3724,7 +3724,7 @@ PrefabInstance:
     - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
         type: 3}
@@ -7474,13 +7474,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398277285}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1370550523}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &402231710
 GameObject:
@@ -15896,7 +15896,7 @@ Transform:
   m_Children:
   - {fileID: 1815866265}
   m_Father: {fileID: 1370550523}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1067067055 stripped
 Transform:
@@ -28399,6 +28399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 398277289}
   - {fileID: 635119618}
   - {fileID: 1065755966}
   - {fileID: 1843608204}
@@ -39475,8 +39476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SketchSurface: {fileID: 593121473}
   m_DefaultSketchPlaybackMode: 0
-  m_GazeMaxAngleFromPointing: 85
-  m_GazeMaxAngleFacingToForward: 80
+  m_GazeMaxAngleFromPointing: 360
+  m_GazeMaxAngleFacingToForward: 360
   m_AtlasIconTextures: 1
   m_SaveIconTool: {fileID: 835580262}
   m_DropCam: {fileID: 1038705378}
@@ -39486,9 +39487,9 @@ MonoBehaviour:
   m_TransformGizmoPrefab: {fileID: 100004, guid: 9841c67ebbc439c41990e9f5d3ddcbbb,
     type: 3}
   m_RotationIconPrefab: {fileID: 100000, guid: 72830b8e348ad7649886747f9c168ebc, type: 3}
-  m_GazeMaxAngleFromFacing: 40
+  m_GazeMaxAngleFromFacing: 360
   m_GazeMaxDistance: 15
-  m_GazeControllerPointingDistance: 4
+  m_GazeControllerPointingDistance: 15
   m_GazePanelDectivationDelay: 0.25
   m_UIReticle: {fileID: 269484831}
   m_UIReticleMobile: {fileID: 860279052}
@@ -40938,7 +40939,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1370550523}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1833140486
 PrefabInstance:
@@ -41392,7 +41393,7 @@ Transform:
   m_Children:
   - {fileID: 1843608106}
   m_Father: {fileID: 1370550523}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1843608206
 MonoBehaviour:
@@ -48987,7 +48988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4237745945251962, guid: f158162c2f61e2142b099443643a1f93, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4237745945251962, guid: f158162c2f61e2142b099443643a1f93, type: 3}
       propertyPath: m_LocalPosition.x
