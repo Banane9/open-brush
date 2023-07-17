@@ -97,16 +97,17 @@ namespace MoodWorlds
         {
             var time = Time.realtimeSinceStartupAsDouble - commandStartTime;
             var distance = InputManager.m_Instance.GetBrushControllerAttachPoint().position - startPosition;
-            var speed = distance / (float)time;
+            var velocity = distance / (float)time;
+            var speed = velocity.magnitude;
 
-            Debug.Log("Controller moved: " + distance.magnitude + " over " + time + "s: " + speed.magnitude + "dm/s");
+            Debug.Log("Controller moved: " + distance.magnitude + " over " + time + "s: " + speed + "dm/s");
 
-            if (speed.magnitude >= thresholdSpeed)
-            {
+            //if (speed >= thresholdSpeed)
+            //{
                 hideTriggered = false;
-                flySpeed = speed;
+                flySpeed = Mathf.Max(20, speed) * velocity.normalized;
                 flyUntilTime = Time.realtimeSinceStartupAsDouble + 2 + Mathf.Sqrt(flySpeed.magnitude / 10);
-            }
+            //}
         }
 
         public override bool InputBlocked() => AnimationActive || base.InputBlocked();

@@ -59,9 +59,10 @@ namespace Assets.Scripts.MoodWorlds
 
         private void LateUpdate()
         {
-            var position = ViewpointScript.Head.position;
-            position.y = .05f;
-            transform.position = position;
+            transform.position = ViewpointScript.Head.transform.position;
+            var localPosition = transform.localPosition;
+            localPosition.y = .05f;
+            transform.localPosition = localPosition;
 
             var layers = App.Scene.LayerCanvases.Skip(1).ToArray();
             var wrongStage = (MoodWorldsManager.Stage & MoodWorldsStage.ReturningToPositiveWorld) == 0;
