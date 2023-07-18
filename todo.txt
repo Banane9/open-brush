@@ -1,0 +1,39 @@
+Environments reduzieren:
+	Standard, Night Sky, Snowman (ohne man), alle neuen
+
+Particle und andere tool effekte erst anzeigen, wenn das info Fenster bestätigt wurde
+Particle texture? Sparkles oder so ähnlich. -> im Text genauer beschreiben
+größere Steigerung während des einbeziehens.
+Bild in der Glaskugel Schrittweise auftauchen lassen
+
+Texte überarbeiten.
+Thanks for participation erst nach ein paar minuten wieder in der positiven welt
+Extra environments panel.
+Fehler bei den Environment Terrains ausloten
+
+MoodWorlds namen ändern?
+
+Hybridstudie: Probanden führen den Ablauf zuhause aus.
+Automatisches Speichern der fertigen Sketches
+Mögliche Probanden kontaktieren / herausfinden
+
+
+
+Study:
+Introduction, saying hello and so on
+First set of questionnaires: meeting the requirements for the study, consent, demographics, current mood?
+Introduction to the procedure, overview of the steps (creating positive world, then negative, before returning to positive)
+Introduction to VR system / fitting / controls
+Talk about / write about a recent positive experience that they might want to portray (AEMT)
+Get used to VR setup and open brush while creating positive world
+Swap to creating negative world (while they're out of vr?)
+Questionnaire about mood? - known effective from first study
+Talk about / write about a recent negative experience that they might want to portray - target negative valence around neutral/middle arousal, e.g. sad, gloomy, miserable, frustrated
+Questionnaire about mood
+Move on to creating negative world
+Return to the previously created positive world using one of the three methods
+Allow some time in the positive World before (saving the sketch? and) ending the VR program
+Final Questionnaire about mood / experience and how they liked it
+
+
+Emotion categorization: Russel's Circumplex model
