@@ -32,7 +32,7 @@ namespace Assets.Scripts.MoodWorlds
 
         protected override bool CommandActive()
         {
-            return InputManager.m_Instance.GetCommand(InputManager.SketchCommands.WrappingUp);
+            return base.CommandActive() && !AnimationActive && InputManager.m_Instance.GetCommand(InputManager.SketchCommands.WrappingUp);
         }
 
         public override void LateUpdateTool()
@@ -73,10 +73,5 @@ namespace Assets.Scripts.MoodWorlds
         }
 
         public bool AnimationActive => (freezeCameraTime + freezeCameraDuration) > Time.realtimeSinceStartupAsDouble;
-
-        public override bool InputBlocked()
-        {
-            return AnimationActive || base.InputBlocked();
-        }
     }
 }

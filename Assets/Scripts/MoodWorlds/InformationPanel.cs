@@ -22,7 +22,11 @@ namespace MoodWorlds
         public bool Dismissed
         {
             get => !Visual.activeSelf;
-            private set => Visual.SetActive(!value);
+            private set
+            {
+                Visual.SetActive(!value);
+                MoodWorldsManager.StageInformationDismissed = value;
+            }
         }
 
         private int stages => Math.Min(Stages.Length, StageVisuals.Length);

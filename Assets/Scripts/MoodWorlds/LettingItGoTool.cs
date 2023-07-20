@@ -34,7 +34,7 @@ namespace MoodWorlds
 
         protected override bool CommandActive()
         {
-            return InputManager.m_Instance.GetCommand(InputManager.SketchCommands.LettingGo);
+            return base.CommandActive() && !AnimationActive && InputManager.m_Instance.GetCommand(InputManager.SketchCommands.LettingGo);
         }
 
         protected override void OnCommandActivated()
@@ -109,8 +109,6 @@ namespace MoodWorlds
                 flyUntilTime = Time.realtimeSinceStartupAsDouble + 2 + Mathf.Sqrt(flySpeed.magnitude / 10);
             //}
         }
-
-        public override bool InputBlocked() => AnimationActive || base.InputBlocked();
 
         public bool AnimationActive => (flyUntilTime - Time.realtimeSinceStartupAsDouble) > 0;
     }

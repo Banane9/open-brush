@@ -38,6 +38,7 @@ namespace MoodWorlds
             var targetPosition = ViewpointScript.Head.position;
             targetPosition.y /= 2;
 
+            BodyParticles.gameObject.SetActive(MoodWorldsManager.StageInformationDismissed);
             BodyParticles.transform.position = targetPosition;
 
             var shape = BodyParticles.shape;
@@ -65,12 +66,7 @@ namespace MoodWorlds
 
         protected override bool CommandActive()
         {
-            return InputManager.m_Instance.GetCommand(InputManager.SketchCommands.TyingIn);
-        }
-
-        public override bool InputBlocked()
-        {
-            return base.InputBlocked() || hideTime + 2 > Time.realtimeSinceStartupAsDouble;
+            return base.CommandActive() && hideTime + 2 < Time.realtimeSinceStartupAsDouble && InputManager.m_Instance.GetCommand(InputManager.SketchCommands.TyingIn);
         }
 
         public override void EnableTool(bool bEnable)
@@ -80,6 +76,7 @@ namespace MoodWorlds
             var targetPosition = ViewpointScript.Head.position;
             targetPosition.y /= 2;
 
+            BodyParticles.gameObject.SetActive(MoodWorldsManager.StageInformationDismissed);
             BodyParticles.transform.position = targetPosition;
 
             var shape = BodyParticles.shape;
@@ -220,8 +217,8 @@ namespace MoodWorlds
                 colorOverLifetime.color = gradient;
 
                 emission = WandParticles.emission;
-                emission.rateOverTimeMultiplier = Mathf.Lerp(25, 2, completion);
-                emission.rateOverDistanceMultiplier = Mathf.Lerp(4, .5f, completion);
+                emission.rateOverTimeMultiplier = Mathf.Lerp(35, .5f, completion);
+                emission.rateOverDistanceMultiplier = Mathf.Lerp(5, .125f, completion);
             }
         }
 

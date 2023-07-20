@@ -37,7 +37,7 @@ namespace MoodWorlds
             wandVisual = transform.Find("WandVisual")?.gameObject;
         }
 
-        public override bool InputBlocked() => !armed;
+        public override bool InputBlocked() => !armed || base.InputBlocked();
 
         public override void LateUpdateTool()
         {
@@ -77,7 +77,7 @@ namespace MoodWorlds
             WhileCommandActive();
         }
 
-        protected abstract bool CommandActive();
+        protected virtual bool CommandActive() => !InputBlocked() && MoodWorldsManager.StageInformationDismissed;
 
         protected virtual void OnCommandActivated()
         { }

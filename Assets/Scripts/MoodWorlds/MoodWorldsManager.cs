@@ -35,10 +35,13 @@ namespace MoodWorlds
             private set
             {
                 stage = value;
+                StageInformationDismissed = false;
                 StageChangeTime = Time.realtimeSinceStartupAsDouble;
                 Debug.Log("MoodWorlds stage set to " + stage);
             }
         }
+
+        public static bool StageInformationDismissed { get; internal set; }
 
         public static int GetRadialSegment(Vector3 direction)
         {

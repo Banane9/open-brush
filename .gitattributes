@@ -2,6 +2,7 @@
 # spurious diffs when Unity overwrites CRLF with LF
 *.mat text eol=lf
 *.asset text eol=lf
+*.terrain.asset binary
 *.meta text eol=lf
 *.unity text eol=lf
 *.prefab text eol=lf
