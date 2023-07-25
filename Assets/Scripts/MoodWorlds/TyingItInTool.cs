@@ -36,15 +36,10 @@ namespace MoodWorlds
             base.UpdateTool();
 
             var targetPosition = ViewpointScript.Head.position;
-            targetPosition.y /= 2;
+            targetPosition.y -= 4f;
 
             BodyParticles.gameObject.SetActive(MoodWorldsManager.StageInformationDismissed);
             BodyParticles.transform.position = targetPosition;
-
-            var shape = BodyParticles.shape;
-            var scale = shape.scale;
-            scale.y = targetPosition.y / shape.radius;
-            shape.scale = scale;
 
             if (triggeredHide && !InputBlocked())
             {
@@ -74,15 +69,10 @@ namespace MoodWorlds
             base.EnableTool(bEnable);
 
             var targetPosition = ViewpointScript.Head.position;
-            targetPosition.y /= 2;
+            targetPosition.y -= 4f;
 
             BodyParticles.gameObject.SetActive(MoodWorldsManager.StageInformationDismissed);
             BodyParticles.transform.position = targetPosition;
-
-            var shape = BodyParticles.shape;
-            var scale = shape.scale;
-            scale.y = targetPosition.y / shape.radius;
-            shape.scale = scale;
 
             var emission = WandParticles.emission;
             emission.rateOverTimeMultiplier = 2;
@@ -110,11 +100,11 @@ namespace MoodWorlds
             gradientAlpha);
 
             colorOverLifetime = BodyParticles.colorOverLifetime;
-            colorOverLifetime.color = gradient;
+            //colorOverLifetime.color = gradient;
 
-            emission = WandParticles.emission;
-            emission.rateOverTimeMultiplier = Mathf.Lerp(25, 2, completion);
-            emission.rateOverDistanceMultiplier = Mathf.Lerp(4, .5f, completion);
+            emission = BodyParticles.emission;
+            emission.rateOverTimeMultiplier = Mathf.Lerp(35, .1f, completion);
+            emission.rateOverDistanceMultiplier = Mathf.Lerp(5, .025f, completion);
         }
 
         protected override void OnCommandActivated()
@@ -163,7 +153,7 @@ namespace MoodWorlds
                 gradientAlpha);
 
             var colorOverLifetime = WandParticles.colorOverLifetime;
-            colorOverLifetime.color = gradient;
+            //colorOverLifetime.color = gradient;
 
             position = new Vector2(InputManager.m_Instance.GetBrushControllerAttachPoint().position.x, InputManager.m_Instance.GetBrushControllerAttachPoint().position.z);
             startDistance = (brushStartPosition - target).magnitude;
@@ -181,7 +171,7 @@ namespace MoodWorlds
                 gradientAlpha);
 
             colorOverLifetime = BrushParticles.colorOverLifetime;
-            colorOverLifetime.color = gradient;
+            //colorOverLifetime.color = gradient;
 
             if (currentBrushDistance < 2 && currentWandDistance < 2)
             {
@@ -214,11 +204,11 @@ namespace MoodWorlds
                     gradientAlpha);
 
                 colorOverLifetime = BodyParticles.colorOverLifetime;
-                colorOverLifetime.color = gradient;
+                //colorOverLifetime.color = gradient;
 
-                emission = WandParticles.emission;
-                emission.rateOverTimeMultiplier = Mathf.Lerp(35, .5f, completion);
-                emission.rateOverDistanceMultiplier = Mathf.Lerp(5, .125f, completion);
+                emission = BodyParticles.emission;
+                emission.rateOverTimeMultiplier = Mathf.Lerp(35, .1f, completion);
+                emission.rateOverDistanceMultiplier = Mathf.Lerp(5, .025f, completion);
             }
         }
 

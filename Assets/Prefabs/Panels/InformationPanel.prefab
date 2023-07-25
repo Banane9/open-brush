@@ -576,15 +576,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome back to your <i>positive world</i>.
-
-
-    Now you can take a moment
-    to get into a positive mood again - feel free to add to your drawing or otherwise
-    integrate your experience.
-
-
-    <b>Thanks for your participation!</b>'
+  m_text: "Congrats and welcome back to your positive world!\n\nEnjoy \u2026<size=30%>\n\n</size>...
+    and step back into the real world whenever you feel ready."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
   m_sharedMaterial: {fileID: 2133298, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
@@ -611,8 +604,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
-  m_fontSizeBase: 0.8
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -905,7 +898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &914066369315793272
 RectTransform:
   m_ObjectHideFlags: 0
@@ -988,19 +981,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<u>Welcome to <b>MoodWorlds</b></u>
+  m_text: 'Welcome to <b>MoodShaper</b>,
 
-    <size=75%>This is an interactive
-    tool to help you deal with negative emotions.
+    <size=90%>an interactive tool that
+    guides you through the journey of navigating negative emotions or thoughts.<size=50%>
 
-    To begin, dismiss this panel
-    and create a <i>positive world</i>.
 
-    Make sure to pick an environment that
-    you like, and draw something that puts you in a good mood.
-
-    To move on, use
-    the <b>MoodWorlds</b> menu.'
+    </size><size=85%>To
+    begin, customise your VR world: choose an environment, colours and draw (abstract)
+    elements that uplift your mood and make you happy.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
   m_sharedMaterial: {fileID: 2133298, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
@@ -1258,15 +1247,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'One of the ways to deal with negative experiences is, to free yourself
-    from them.
+  m_text: 'Let go of negative emotions or thoughts, and set them free.<size=30%>
 
-    To facilitate this, you can now "throw away" what''s putting
-    you in a bad mood.
 
-    Simply throw the airplane at your sketch using the trigger
-    and watch it disappear. The indicator on the ground shows you where there''s
-    something left.'
+    </size><size=90%>Throw
+    paper airplanes at your sketch using the trigger.  Witness how the sketch gradually
+    disappears.
+
+    Use the indicator on the ground to monitor your progress. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
   m_sharedMaterial: {fileID: 2133298, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
@@ -1293,8 +1281,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.76
-  m_fontSizeBase: 0.76
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1479,14 +1467,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Great, now that you''ve created your <i>positive world</i>, it''s time
-    to create your <i>negative world</i>.
+  m_text: 'Now, visualise the negative emotions that you wrote about.<size=50%>
 
-    This should be a drawing and environment
-    which puts you into a bad mood.
 
-    You can go back to your <i>positive world</i>
-    through the <b>MoodWorlds</b> menu.'
+    </size><size=97%>Choose
+    an environment, colours and draw (abstract) elements that represent your bad
+    mood and evoke the same emotions as described in your text.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
   m_sharedMaterial: {fileID: 2133298, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
@@ -1513,8 +1499,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.9
-  m_fontSizeBase: 0.9
+  m_fontSize: 0.98
+  m_fontSizeBase: 0.98
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1701,7 +1687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &914066370864044108
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1784,15 +1770,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'One of the ways to deal with negative experiences is, to take them in
-    as a part of you.
+  m_text: 'Embrace negative emotions or thoughts as something that help you grow
+    stronger and become more resilient.<size=30%>
 
-    To facilitate this, you can now "tie in" what''s putting
-    you in a bad mood into yourself.
 
-    Simply pull it towards you using the triggers
-    and watch it disappear into you. The indicator on the ground shows you where
-    there''s something left.'
+    </size><size=90%>Assimilate
+    your sketch by pulling it towards you holding <b>both</b> triggers. Witness how
+    the sketch gradually disappears and how you start glowing.
+
+    Use the indicator
+    on the ground to monitor your progress.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
   m_sharedMaterial: {fileID: 2133298, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
@@ -1819,8 +1806,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.79
-  m_fontSizeBase: 0.79
+  m_fontSize: 0.83
+  m_fontSizeBase: 0.83
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2005,15 +1992,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'One of the ways to deal with negative experiences is, to keep a connection
-    to it, but separate them from you.
+  m_text: 'Separate yourself from negative emotions or thoughts, and create a dedicated
+    space for them.<size=30%>
 
-    To facilitate this, you can now "wrap
-    up" what''s putting you in a bad mood into the glass ball.
 
-    Simply take pictures
-    of your sketch with the camera using the trigger and watch it disappear into
-    the ball. The indicator on the ground shows you where there''s something left.'
+    </size><size=90%>Take pictures of your sketch
+    with a camera using the trigger. Witness how the sketch gradually disappears
+    and reappears in a glass sphere.
+
+    Use the indicator on the ground to monitor
+    your progress.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
   m_sharedMaterial: {fileID: 2133298, guid: fce54057bad3d2d4cb3c36ee394be518, type: 2}
@@ -2040,8 +2028,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.72
-  m_fontSizeBase: 0.72
+  m_fontSize: 0.9
+  m_fontSizeBase: 0.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

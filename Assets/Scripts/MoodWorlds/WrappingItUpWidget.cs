@@ -58,19 +58,19 @@ namespace MoodWorlds
         private void updateShaderSlices()
         {
             var layers = App.Scene.LayerCanvases.Skip(1).Select(layer => layer.transform).ToArray();
-            if (layers.Length == 0)
-                return;
 
-            var input = new Texture2D(layers.Length, 1, TextureFormat.RFloat, false)
+            var input = new Texture2D(MoodWorldsManager.RadialSegments, 1, TextureFormat.RFloat, false)
             {
                 filterMode = FilterMode.Point,
                 wrapMode = TextureWrapMode.Clamp
             };
 
-            var totalSteps = Mathf.Max(1f, App.Scene.LayerCanvases.Skip(1).Sum(c => c.transform.childCount));
-            var remainingSteps = (float)App.Scene.LayerCanvases.Skip(1).SelectMany(c => c.transform.Cast<Transform>()).Count(t => t.gameObject.activeSelf);
+            //var totalSteps = Mathf.Max(1f, App.Scene.LayerCanvases.Skip(1).Sum(c => c.transform.childCount));
+            //var remainingSteps = (float)App.Scene.LayerCanvases.Skip(1).SelectMany(c => c.transform.Cast<Transform>()).Count(t => t.gameObject.activeSelf);
 
-            var progress = layers.Select(layer => layer.Cast<Transform>().Count(t => t.gameObject.activeSelf) / layer.transform.childCount).Cast<float>().ToArray();
+            var progress = layers.Select(layer => layer.childCount == 0 ? 1f : Mathf.Min(.2f, (float)layer.Cast<Transform>().Count(t => !t.gameObject.activeSelf) / (float)layer.childCount))
+                .Concat(Enumerable.Repeat(1f, MoodWorldsManager.RadialSegments - layers.Length))
+                .ToArray();
 
             input.SetPixelData(progress, 0);
             input.Apply();

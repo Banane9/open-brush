@@ -1,21 +1,32 @@
 Environments reduzieren:
 	Standard, Night Sky, Snowman (ohne man), alle neuen
 
-Particle und andere tool effekte erst anzeigen, wenn das info Fenster bestätigt wurde
-Particle texture? Sparkles oder so ähnlich. -> im Text genauer beschreiben
-größere Steigerung während des einbeziehens.
 Bild in der Glaskugel Schrittweise auftauchen lassen
+etwas höher, mit sockel?
+richtige skybox für negative welt setzen
 
-Texte überarbeiten.
 Thanks for participation erst nach ein paar minuten wieder in der positiven welt
 Extra environments panel.
 Fehler bei den Environment Terrains ausloten
 
-MoodWorlds namen ändern?
-
 Hybridstudie: Probanden führen den Ablauf zuhause aus.
 Automatisches Speichern der fertigen Sketches
 Mögliche Probanden kontaktieren / herausfinden
+
+Control scheme images showing the important buttons only: trigger, grab, thumbsticks
+
+show moodshaper panel in the tutorial and explain that only one button will be available to them.
+
+moodshaper google account erstellen, automatisch einloggen und backup speichern
+
+informationsblatt mit detaillierten informationen erstellen
+
+abyss spawn at the edge not above
+desert add some pillars or stones to empty side
+dark cloudy skybox for industrial
+
+zeiten aufzeichnen?
+im metadata.json des tilt-files?
 
 
 
@@ -37,3 +48,24 @@ Final Questionnaire about mood / experience and how they liked it
 
 
 Emotion categorization: Russel's Circumplex model
+
+Übersicht für den Studienplan mit LatinSquare und den drei Möglichkeiten für die randomisierung.
+
+
+Interviewfragen:
+von allgemein zu spezifisch
+offen fragen
+
+was hat sich geändert
+andere varianten zeigen - was sind eure gedanken dazu? etwas vergleichen
+likes
+dislikes
+changes?
+influence on every day
+
+fragen aus der reflektion?
+self-efficacy, reflection
+
+
+eigenen ablaufplan
+aufnahme? starten etc.

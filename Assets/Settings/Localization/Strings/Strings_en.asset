@@ -3165,77 +3165,66 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 123560005797781504
-    m_Localized: 'Great, now that you''ve created your <i>positive world</i>, it''s
-      time to create your <i>negative world</i>.
+    m_Localized: 'Now, visualise the negative emotions that you wrote about.<size=50%>
 
-      This should be a drawing
-      and environment which puts you into a bad mood.
 
-      You can go back to your
-      <i>positive world</i> through the <b>MoodWorlds</b> menu.'
+      </size><size=97%>Choose
+      an environment, colours and draw (abstract) elements that represent your bad
+      mood and evoke the same emotions as described in your text.'
     m_Metadata:
       m_Items: []
   - m_Id: 123561213753139200
-    m_Localized: 'One of the ways to deal with negative experiences is, to free yourself
-      from them.
+    m_Localized: 'Let go of negative emotions or thoughts, and set them free.<size=30%>
 
-      To facilitate this, you can now "throw away" what''s putting
-      you in a bad mood.
 
-      Simply throw the airplane at your sketch using the
-      trigger and watch it disappear. The indicator on the ground shows you where
-      there''s something left.'
+      </size><size=90%>Throw
+      paper airplanes at your sketch using the trigger.  Witness how the sketch gradually
+      disappears.
+
+      Use the indicator on the ground to monitor your progress. '
     m_Metadata:
       m_Items: []
   - m_Id: 123561292874489856
-    m_Localized: 'One of the ways to deal with negative experiences is, to keep a
-      connection to it, but separate them from you.
+    m_Localized: 'Separate yourself from negative emotions or thoughts, and create
+      a dedicated space for them.<size=30%>
 
-      To facilitate this, you
-      can now "wrap up" what''s putting you in a bad mood into the glass ball.
 
-      Simply
-      take pictures of your sketch with the camera using the trigger and watch it
-      disappear into the ball. The indicator on the ground shows you where there''s
-      something left.'
+      </size><size=90%>Take pictures
+      of your sketch with a camera using the trigger. Witness how the sketch gradually
+      disappears and reappears in a glass sphere.
+
+      Use the indicator on the
+      ground to monitor your progress.'
     m_Metadata:
       m_Items: []
   - m_Id: 123561363137470464
-    m_Localized: 'One of the ways to deal with negative experiences is, to take them
-      in as a part of you.
+    m_Localized: 'Embrace negative emotions or thoughts as something that help you
+      grow stronger and become more resilient.<size=30%>
 
-      To facilitate this, you can now "tie in" what''s
-      putting you in a bad mood into yourself.
 
-      Simply pull it towards you
-      using the triggers and watch it disappear into you. The indicator on the ground
-      shows you where there''s something left.'
+      </size><size=90%>Assimilate
+      your sketch by pulling it towards you holding <b>both</b> triggers. Witness
+      how the sketch gradually disappears and how you start glowing.
+
+      Use the
+      indicator on the ground to monitor your progress.'
     m_Metadata:
       m_Items: []
   - m_Id: 123561425682931712
-    m_Localized: 'Welcome back to your <i>positive world</i>.
-
-
-      Now you can
-      take a moment to get into a positive mood again - feel free to add to your
-      drawing or otherwise integrate your experience.
-
-
-      <b>Thanks for your
-      participation!</b>'
+    m_Localized: "Congrats and welcome back to your positive world!\n\nEnjoy \u2026<size=30%>\n\n</size>...
+      and step back into the real world whenever you feel ready."
     m_Metadata:
       m_Items: []
   - m_Id: 123560177491615744
-    m_Localized: '<u>Welcome to <b>MoodWorlds</u>
+    m_Localized: 'Welcome to <b>MoodShaper</b>,
 
-      <size=73%>This is an interactive
-      tool to help you deal with negative emotions.
+      <size=90%>an interactive tool
+      that guides you through the journey of navigating negative emotions or thoughts.<size=50%>
 
-      To begin, dismiss this
-      panel and create a <i>positive world.</i>
 
-      Make sure to pick an environment
-      that you like, and draw something that puts you in a good mood.'
+      </size><size=85%>To
+      begin, customise your VR world: choose an environment, colours and draw (abstract)
+      elements that uplift your mood and make you happy.'
     m_Metadata:
       m_Items: []
   references:
