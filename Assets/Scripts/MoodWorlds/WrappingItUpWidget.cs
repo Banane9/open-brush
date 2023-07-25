@@ -19,6 +19,9 @@ namespace MoodWorlds
         [SerializeField]
         private RenderTexture renderTarget;
 
+        [SerializeField]
+        private Material renderMaterial;
+
         private bool wrappingUp;
 
         private void Update()
@@ -49,8 +52,30 @@ namespace MoodWorlds
             if (!wrappingUp)
                 transform.position = ViewpointScript.Head.position;
 
+            updateShaderSlices();
+        }
 
-            // Add code to update the slices shown of the render
+        private void updateShaderSlices()
+        {
+            var layers = App.Scene.LayerCanvases.Skip(1).Select(layer => layer.transform).ToArray();
+            if (layers.Length == 0)
+                return;
+
+            var input = new Texture2D(layers.Length, 1, TextureFormat.RFloat, false)
+            {
+                filterMode = FilterMode.Point,
+                wrapMode = TextureWrapMode.Clamp
+            };
+
+            var totalSteps = Mathf.Max(1f, App.Scene.LayerCanvases.Skip(1).Sum(c => c.transform.childCount));
+            var remainingSteps = (float)App.Scene.LayerCanvases.Skip(1).SelectMany(c => c.transform.Cast<Transform>()).Count(t => t.gameObject.activeSelf);
+
+            var progress = layers.Select(layer => layer.Cast<Transform>().Count(t => t.gameObject.activeSelf) / layer.transform.childCount).Cast<float>().ToArray();
+
+            input.SetPixelData(progress, 0);
+            input.Apply();
+
+            renderMaterial.SetTexture("slices", input);
         }
     }
 }

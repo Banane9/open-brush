@@ -3711,6 +3711,11 @@ PrefabInstance:
       propertyPath: m_GrabDistance
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2808119027425327341, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: renderMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 44dadacd748f9c24a8f1d49a3f5c6418, type: 2}
     - target: {fileID: 3251363034801063828, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
         type: 3}
       propertyPath: m_Layer
