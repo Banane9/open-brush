@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7469783939796744329
 Transform:
   m_ObjectHideFlags: 0
@@ -358,17 +358,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowDuration: 0
-  m_GrabDistance: 0
-  m_CollisionRadius: 0.5
+  m_GrabDistance: 1
+  m_CollisionRadius: 1
   m_AllowTwoHandGrab: 1
   m_DestroyOnHide: 0
   m_AllowHideWithToss: 0
   m_DisableDrift: 1
   m_RecordMovements: 0
-  m_AllowSnapping: 1
+  m_AllowSnapping: 0
   m_SnapDisabledDelay: 0.2
-  m_AllowPinning: 1
-  m_AllowDormancy: 1
+  m_AllowPinning: 0
+  m_AllowDormancy: 0
   m_TossDuration: 0
   m_TintableMeshes: []
   m_SpawnPlacementOffset: {x: 0, y: 0, z: 0}
@@ -381,6 +381,7 @@ MonoBehaviour:
   visual: {fileID: 3251363034801063828}
   renderCamera: {fileID: 491996498537531432}
   renderTarget: {fileID: 8400000, guid: f7ab8387c29eb7c4e9e05a334a108eef, type: 2}
+  renderMaterial: {fileID: 2100000, guid: 44dadacd748f9c24a8f1d49a3f5c6418, type: 2}
 --- !u!20 &491996498537531432
 Camera:
   m_ObjectHideFlags: 0
@@ -390,7 +391,7 @@ Camera:
   m_GameObject: {fileID: 7991718254554378924}
   m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2

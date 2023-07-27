@@ -16,6 +16,7 @@ Shader "Unlit/SlicedCubeMap" {
                 samplerCUBE _CubeMap;
                 fixed _Alpha;
                 uniform sampler1D slices;
+                uniform int count;
 
                 struct v2f {
                     float4 pos : SV_Position;
@@ -27,7 +28,7 @@ Shader "Unlit/SlicedCubeMap" {
                     v2f o;
                     o.dir = float2(v.vertex.x, v.vertex.z);
                     o.pos = UnityObjectToClipPos(v.vertex);
-                    o.uv = v.vertex.xyz * half3(-1,1,1); // mirror so cubemap projects as expected
+                    o.uv = v.vertex.xyz; // don't mirror so cubemap projects as expected
                     return o;
                 }
 
@@ -36,9 +37,9 @@ Shader "Unlit/SlicedCubeMap" {
                     float angle = acos(dot(dir, float2(0, 1)));
 
                     if (dir.x < 0)
-                        angle = pi - angle;
+                        angle = (2 * pi) - angle;
 
-                    float alpha = _Alpha * tex1D(slices, angle / (2 * pi));
+                    float alpha = _Alpha * tex1D(slices, ((angle + (pi / count)) / (2 * pi)));
                     return texCUBE(_CubeMap, i.uv) * fixed4(1, 1, 1, alpha);
                 }
                 ENDCG

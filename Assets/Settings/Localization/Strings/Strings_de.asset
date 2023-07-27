@@ -2800,6 +2800,10 @@ MonoBehaviour:
     m_Localized: "Fenster schlie\xDFen"
     m_Metadata:
       m_Items: []
+  - m_Id: 127664720684883968
+    m_Localized: Winter
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -3003,6 +3003,10 @@ MonoBehaviour:
     m_Key: RETURN_POSITIVE_INFO
     m_Metadata:
       m_Items: []
+  - m_Id: 127664720684883968
+    m_Key: ENVIRONMENT_WINTER
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

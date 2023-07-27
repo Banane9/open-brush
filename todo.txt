@@ -1,13 +1,4 @@
-Environments reduzieren:
-	Standard, Night Sky, Snowman (ohne man), alle neuen
-
-Bild in der Glaskugel Schrittweise auftauchen lassen
-etwas höher, mit sockel?
-richtige skybox für negative welt setzen
-
-Thanks for participation erst nach ein paar minuten wieder in der positiven welt
-Extra environments panel.
-Fehler bei den Environment Terrains ausloten
+glaskugel mit sockel?
 
 Hybridstudie: Probanden führen den Ablauf zuhause aus.
 Automatisches Speichern der fertigen Sketches
@@ -20,10 +11,6 @@ show moodshaper panel in the tutorial and explain that only one button will be a
 moodshaper google account erstellen, automatisch einloggen und backup speichern
 
 informationsblatt mit detaillierten informationen erstellen
-
-abyss spawn at the edge not above
-desert add some pillars or stones to empty side
-dark cloudy skybox for industrial
 
 zeiten aufzeichnen?
 im metadata.json des tilt-files?
@@ -69,3 +56,54 @@ self-efficacy, reflection
 
 eigenen ablaufplan
 aufnahme? starten etc.
+
+
+
+Interview Guideline of the Semi-Structured Interviews (samples)
+
+1. Beschreibt in 2-3 Sätzen den Konflikt, in den ihr euch hineinversetzt habt.
+        Describe in 2-3 sentences the conflict you have put yourself in.
+
+2. Wie seid ihr beim Erstellen eurer eigenen virtuellen Umgebung vorgegangen?
+        How did you go about creating your own virtual environment?
+
+3. Welche Gefühle und Gedanken hattet ihr während ihr eure eigene virtuelle Umgebung erstellt habt?
+        What feelings and thoughts did you have during creating your own virtual environment?
+    
+4. Was war euch während der Erstellung eurer virtuellen Umgebungen besonders wichtig?
+   Warum habt ihr euch für diese Objekte / diese Farben / dieses Design entschieden?
+        What was particularly important to you while creating your virtual environments?
+        Why did you choose these objects / these colors / this design?
+
+5. Als ihr das Bild des anderen „besichtigt“ habt:
+   Inwieweit hat euch die Diskussion mit eurem Partner geholfen, euch selber zu verstehen?
+        To what extent did the discussion during the creation help you to understand yourself?
+
+6. Als ihr das Bild des anderen „besichtigt“ habt:
+   Inwieweit hat euch die Diskussion mit eurem Partner geholfen, den anderen zu verstehen?
+        To what extent did the discussion during the creation help you to understand the partner?
+
+7. Als ihr eure gemeinsame Welt erstellt habt: Welche Gefühle und Gedanken hattet ihr dabei?
+        What feelings and thoughts did you have during creating your virtual environment  together?
+
+8. Was war euch während der Kreierung eurer gemeinsamen virtuellen Umgebungen besonders wichtig?
+   Warum habt ihr euch für diese Objekte / diese Farben / diese Designs entschieden?
+        What was particularly important to you while creating your virtual environments?
+        Why did you choose these objects / these colors / these designs?
+
+9. Wie geht es euch jetzt, nachdem ihr alle Teile der Studie beendet habt?
+        How do you feel now that you have finished all the parts of the study?
+
+10. Welche Herausforderungen hat es vielleicht für euch während der gesamten Studie gegeben?
+        What challenges did you face when doing the study?
+
+11. Was würdet ihr beim nächsten Mal anders machen?
+        What would you do differently next time?
+
+12. Und abschließend: Wie fandet ihr die Studie?
+    Was war vielleicht auch besonders spannend oder überraschend für euch?
+        Finally, how do you rate your overall experience?
+        What might have been especially interesting or unexpected for you?
+
+13. Habt ihr noch Kommentare oder Anmerkungen?
+        Do you have any comments or remarks?

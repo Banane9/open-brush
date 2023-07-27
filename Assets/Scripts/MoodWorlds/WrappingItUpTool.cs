@@ -67,7 +67,7 @@ namespace Assets.Scripts.MoodWorlds
 
             waitingForHide = true;
             freezeCameraTime = Time.realtimeSinceStartupAsDouble;
-            freezeDirection = InputManager.m_Instance.GetBrushControllerAttachPoint().forward;
+            freezeDirection = previewCamera.transform.forward;
 
             clickSource.Play();
         }

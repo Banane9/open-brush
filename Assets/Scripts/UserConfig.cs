@@ -257,11 +257,13 @@ namespace TiltBrush
         [Serializable]
         public struct EnvironmentConfig
         {
+            private static string[] moodWorldsEnvironments = new[] { "Standard", "NightSky", "Winter", "Abyss", "Cave", "Desert", "Forest", "Garden", "House", "Industry" };
+            
             private string[] onlyEnvironments;
 
             public string[] OnlyEnvironments
             {
-                get => onlyEnvironments ??= new string[0];
+                get => moodWorldsEnvironments; // onlyEnvironments ??= new string[0];
                 set => onlyEnvironments = value;
             }
         }
