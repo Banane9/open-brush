@@ -1,4 +1,8 @@
-glaskugel mit sockel?
+glaskugel mit sockel? höher - relativ zum kopf, bewegen wie info panel
+im discord fragen, warum das als widget nicht funktioniert - und warum intro immer auftaucht.
+davon video
+
+abyss hat etwas fliegende steine; näher am rand starten
 
 Hybridstudie: Probanden führen den Ablauf zuhause aus.
 Automatisches Speichern der fertigen Sketches
@@ -14,6 +18,8 @@ informationsblatt mit detaillierten informationen erstellen
 
 zeiten aufzeichnen?
 im metadata.json des tilt-files?
+
+form formattierung fixen?
 
 
 

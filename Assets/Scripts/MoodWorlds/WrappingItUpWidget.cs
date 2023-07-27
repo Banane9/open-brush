@@ -68,7 +68,7 @@ namespace MoodWorlds
             //var totalSteps = Mathf.Max(1f, App.Scene.LayerCanvases.Skip(1).Sum(c => c.transform.childCount));
             //var remainingSteps = (float)App.Scene.LayerCanvases.Skip(1).SelectMany(c => c.transform.Cast<Transform>()).Count(t => t.gameObject.activeSelf);
 
-            var progress = layers.Select(layer => layer.childCount == 0 ? 1f : Mathf.Max(.2f, layer.Cast<Transform>().Count(t => !t.gameObject.activeSelf) / (float)layer.childCount))
+            var progress = layers.Select(layer => layer.childCount == 0 ? 1f : (.15f + Mathf.Lerp(0, .85f, layer.Cast<Transform>().Count(t => !t.gameObject.activeSelf) / (float)layer.childCount)))
                 .Concat(Enumerable.Repeat(1f, MoodWorldsManager.RadialSegments - layers.Length))
                 .ToArray();
 
