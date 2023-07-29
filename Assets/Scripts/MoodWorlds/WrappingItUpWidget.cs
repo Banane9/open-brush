@@ -10,6 +10,8 @@ namespace MoodWorlds
 {
     public class WrappingItUpWidget : GrabWidget
     {
+        private static WrappingItUpWidget instance;
+
         [SerializeField]
         private GameObject visual;
 
@@ -27,6 +29,18 @@ namespace MoodWorlds
 
         private bool wrappingUp;
 
+        internal static void TriggerBurst()
+        {
+            instance.sparkle.Emit(25);
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+
+            instance = this;
+        }
+
         private void Update()
         {
             if (MoodWorldsManager.Stage == MoodWorldsStage.WrappingItUp && !wrappingUp)
@@ -36,7 +50,7 @@ namespace MoodWorlds
                 sparkle.gameObject.SetActive(true);
 
                 var emission = sparkle.emission;
-                emission.rateOverTimeMultiplier = 10;
+                emission.rateOverTimeMultiplier = 7;
 
                 var position = ViewpointScript.Head.position;
                 position.y -= 5f;
@@ -76,26 +90,53 @@ namespace MoodWorlds
 
         private void updateShaderSlices()
         {
-            var layers = App.Scene.LayerCanvases.Skip(1).Select(layer => layer.transform).ToArray();
-
             var input = new Texture2D(MoodWorldsManager.RadialSegments, 1, TextureFormat.RFloat, false)
             {
                 filterMode = FilterMode.Point,
                 wrapMode = TextureWrapMode.Repeat
             };
 
-            //var totalSteps = Mathf.Max(1f, App.Scene.LayerCanvases.Skip(1).Sum(c => c.transform.childCount));
-            //var remainingSteps = (float)App.Scene.LayerCanvases.Skip(1).SelectMany(c => c.transform.Cast<Transform>()).Count(t => t.gameObject.activeSelf);
+            float[] progress;
 
-            var progress = layers.Select(layer => layer.childCount == 0 ? 1f : (.15f + Mathf.Lerp(0, .85f, layer.Cast<Transform>().Count(t => !t.gameObject.activeSelf) / (float)layer.childCount)))
-                .Concat(Enumerable.Repeat(1f, MoodWorldsManager.RadialSegments - layers.Length))
-                .ToArray();
+            if (MoodWorldsManager.Stage == MoodWorldsStage.WrappingItUp)
+            {
+
+                var layers = App.Scene.LayerCanvases.Skip(1).Select(layer => layer.transform).ToArray();
+
+                progress = layers.Select(layer => layer.childCount switch
+                    {
+                        0 => .85f,
+                        1 => layer.GetChild(0).gameObject.activeSelf ? 0 : .85f,
+                        _ => getLogisticAlpha(layer)
+                    })
+                    .Concat(Enumerable.Repeat(.85f, MoodWorldsManager.RadialSegments - layers.Length))
+                    .ToArray();
+            }
+            else
+                progress = Enumerable.Repeat(1f, MoodWorldsManager.RadialSegments).ToArray();
 
             input.SetPixelData(progress, 0);
             input.Apply();
 
             renderMaterial.SetTexture("slices", input);
             renderMaterial.SetInt("count", MoodWorldsManager.RadialSegments);
+        }
+
+        private static float getLogisticAlpha(Transform layer)
+        {
+            var progress = layer.Cast<Transform>().Count(t => !t.gameObject.activeSelf);
+
+            if (progress == 0)
+                return 0;
+            else if (progress == 1)
+                return .45f;
+            else
+            {
+                var center = 1 / (float)layer.childCount;
+                var ratio = progress * center;
+
+                return .45f + .4f / (1 + Mathf.Pow((float)Math.E, -4 * (ratio - center)));
+            }
         }
     }
 }

@@ -3719,17 +3719,22 @@ PrefabInstance:
     - target: {fileID: 3302385589484226126, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4178398982071921189, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
         type: 3}
       propertyPath: m_Layer
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 4178398982071921189, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5260853405041277697, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6151470140800486363, guid: ba6b1f39a6c233e44bccc1c1146a4b0e,
         type: 3}

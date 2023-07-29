@@ -70,6 +70,7 @@ namespace Assets.Scripts.MoodWorlds
             freezeDirection = previewCamera.transform.forward;
 
             clickSource.Play();
+            WrappingItUpWidget.TriggerBurst();
         }
 
         public bool AnimationActive => (freezeCameraTime + freezeCameraDuration) > Time.realtimeSinceStartupAsDouble;
