@@ -326,8 +326,8 @@ namespace TiltBrush
         {
             get
             {
-                var scaleParent = transform.parent;
-                var rotPosParent = (m_NonScaleChild ? m_NonScaleChild.parent : transform.parent);
+                var scaleParent = transform.parent != null ? transform.parent : transform;
+                var rotPosParent = (m_NonScaleChild ? m_NonScaleChild.parent : scaleParent);
                 // return a mix of the two
                 TrTransform xf = Coords.AsGlobal[scaleParent];
                 xf.translation = rotPosParent.position;
@@ -1595,29 +1595,25 @@ namespace TiltBrush
         {
             if (m_BoxCollider)
             {
-                Vector3 vInvTransformedPos = transform.InverseTransformPoint(vControllerPos);
-                Vector3 vSize = m_BoxCollider.size * 0.5f;
-                vSize.x *= m_BoxCollider.transform.localScale.x;
-                vSize.y *= m_BoxCollider.transform.localScale.y;
-                vSize.z *= m_BoxCollider.transform.localScale.z;
-                float xDiff = vSize.x - Mathf.Abs(vInvTransformedPos.x);
-                float yDiff = vSize.y - Mathf.Abs(vInvTransformedPos.y);
-                float zDiff = vSize.z - Mathf.Abs(vInvTransformedPos.z);
-                if (xDiff > 0.0f && yDiff > 0.0f && zDiff > 0.0f)
-                {
-                    return ((xDiff / vSize.x) * 0.333f) +
-                        ((yDiff / vSize.y) * 0.333f) +
-                        ((zDiff / vSize.z) * 0.333f);
-                }
-                return -1.0f;
+                var bounds = m_BoxCollider.bounds;
+                var extents = bounds.extents;
+
+                var controllerOffset = vControllerPos - bounds.center;
+                var extentRatio = new Vector3(Mathf.Abs(controllerOffset.x) / extents.x, Mathf.Abs(controllerOffset.y) / extents.y, Mathf.Abs(controllerOffset.z) / extents.z);
+
+                if (extentRatio.x > 1 || extentRatio.y > 1 || extentRatio.z > 1)
+                    return -1;
+
+                extentRatio *= .333f;
+                return 1 - extentRatio.x - extentRatio.y - extentRatio.z;
             }
 
-            float fDist = Vector3.Distance(vControllerPos, transform.position);
-            if (fDist > m_GrabDistance)
-            {
-                return -1.0f;
-            }
-            return 1.0f - (fDist / m_GrabDistance);
+            var controllerDistance = transform.InverseTransformPoint(vControllerPos).magnitude;
+
+            if (controllerDistance > m_GrabDistance)
+                return -1;
+
+            return 1 - (controllerDistance / m_GrabDistance);
         }
 
         protected virtual Vector3 HomeSnapOffset

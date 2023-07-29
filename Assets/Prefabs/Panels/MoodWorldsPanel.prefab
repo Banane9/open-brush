@@ -133,7 +133,7 @@ MonoBehaviour:
   m_AllowSnapping: 0
   m_SnapDisabledDelay: 0.2
   m_AllowPinning: 0
-  m_AllowDormancy: 1
+  m_AllowDormancy: 0
   m_TossDuration: 0
   m_TintableMeshes:
   - {fileID: 1496677307054565411}

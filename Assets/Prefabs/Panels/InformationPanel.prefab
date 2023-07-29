@@ -835,7 +835,7 @@ MonoBehaviour:
   m_AllowSnapping: 0
   m_SnapDisabledDelay: 0.2
   m_AllowPinning: 0
-  m_AllowDormancy: 1
+  m_AllowDormancy: 0
   m_TossDuration: 0
   m_TintableMeshes: []
   m_SpawnPlacementOffset: {x: 0, y: 0, z: 0}

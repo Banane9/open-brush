@@ -14,6 +14,9 @@ namespace MoodWorlds
         private GameObject visual;
 
         [SerializeField]
+        private ParticleSystem sparkle;
+
+        [SerializeField]
         private Camera renderCamera;
 
         [SerializeField]
@@ -30,14 +33,19 @@ namespace MoodWorlds
             {
                 wrappingUp = true;
                 visual.SetActive(true);
+                sparkle.gameObject.SetActive(true);
+
+                var emission = sparkle.emission;
+                emission.rateOverTimeMultiplier = 10;
 
                 var position = ViewpointScript.Head.position;
-                position.y = 10f;
+                position.y -= 5f;
 
                 var gaze = ViewpointScript.Gaze.direction.normalized;
                 gaze.y = 0;
 
-                visual.transform.position = position + 10f * gaze;
+                transform.position = position + 10f * gaze;
+                transform.localRotation = Quaternion.identity;
 
                 renderCamera.enabled = true;
                 renderCamera.RenderToCubemap(renderTarget);
@@ -47,10 +55,21 @@ namespace MoodWorlds
             {
                 wrappingUp = false;
                 visual.SetActive(false);
+                sparkle.gameObject.SetActive(false);
             }
 
             if (!wrappingUp)
+            {
                 transform.position = ViewpointScript.Head.position;
+                
+                return;
+            }
+
+            if (MoodWorldsManager.Stage == MoodWorldsStage.ReturnedToPositiveWorld)
+            {
+                var emission = sparkle.emission;
+                emission.rateOverTimeMultiplier = 0;
+            }
 
             updateShaderSlices();
         }
